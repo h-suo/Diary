@@ -110,6 +110,7 @@
 		455170EE2A9EFFEC002A043C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				45B7E0D22AF36F6B00475876 /* Manager */,
 				455170EF2A9EFFF6002A043C /* Extension */,
 			);
 			path = Util;
@@ -132,6 +133,24 @@
 				45D0051E2AA5D8340060036B /* ConversionError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		45B7E0D22AF36F6B00475876 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4541CC432A9D9B4A0095C258 /* DateFormatManager.swift */,
+				45DEDCC62AAC057100F55804 /* AlertManager.swift */,
+				45DEDCC82AAD651100F55804 /* ActivityViewManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		45B7E0D32AF36F8600475876 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				45F052282A9DE723004B5225 /* DiaryEntry.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		45C4AF7D2A9C9B79003142B6 /* Application */ = {
@@ -163,13 +182,10 @@
 		45C4AF802A9C9BF2003142B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45B7E0D32AF36F8600475876 /* Entity */,
 				45F052272A9DD0D8004B5225 /* DTO */,
-				45F052282A9DE723004B5225 /* DiaryEntry.swift */,
 				45F052252A9DD081004B5225 /* Reader */,
 				45F052262A9DD0A1004B5225 /* LocaleDateFormatter */,
-				4541CC432A9D9B4A0095C258 /* DateFormatManager.swift */,
-				45DEDCC62AAC057100F55804 /* AlertManager.swift */,
-				45DEDCC82AAD651100F55804 /* ActivityViewManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
