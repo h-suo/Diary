@@ -9,6 +9,7 @@ import UIKit
 
 enum AlertManager {
     
+    // MARK: - Static Function
     static func presentFailAlert(to controller: UIViewController, with message: String) {
         let alertAction = UIAlertAction(title: "확인", style: .cancel)
         let alert = UIAlertController.customAlert(alertTile: "실패", alertMessage: message, preferredStyle: .alert, alertActions: [alertAction])

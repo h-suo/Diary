@@ -8,10 +8,11 @@
 import Foundation
 
 final class UserDateFormatter: LocaleDateFormatterProtocol {
+    
+    // MARK: - static Property
     static let shared = UserDateFormatter()
     
-    private init() {}
-    
+    // MARK: - Property
     var dateFormatter: DateFormatter = {
         let userLocale = Locale.current
         let userTimeZone = TimeZone.current
@@ -23,4 +24,7 @@ final class UserDateFormatter: LocaleDateFormatterProtocol {
 
         return dateFormatter
     }()
+    
+    // MARK: - Life Cycle
+    private init() {}
 }

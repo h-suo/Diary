@@ -7,8 +7,9 @@
 import UIKit
 import CoreData
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    // MARK: - Property
     var window: UIWindow?
 
     // MARK: - Private Property
@@ -25,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private lazy var coreDateDiaryManager = CoreDataDiaryManager(persistentContainer: persistentContainer)
     
+    // MARK: - Scene Function
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else {
             return
@@ -33,26 +35,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: DiaryListViewController(diaryReader: coreDateDiaryManager, diaryManager: coreDateDiaryManager))
         window?.makeKeyAndVisible()
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        
     }
 }
 

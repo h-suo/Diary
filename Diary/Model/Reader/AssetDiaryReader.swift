@@ -8,7 +8,6 @@
 import UIKit
 
 final class AssetDiaryReader: DiaryReadable {
-    
     func diaryEntrys() throws -> [DiaryEntry] {
         guard let asset = NSDataAsset(name: "sample"),
               let diarys = try? JSONDecoder().decode([Diary].self, from: asset.data) else {

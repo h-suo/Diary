@@ -34,7 +34,6 @@ final class CoreDataDiaryManager {
 
 // MARK: - Read Diary
 extension CoreDataDiaryManager: DiaryReadable {
-    
     func diaryEntrys() throws -> [DiaryEntry] {
         let diaryEntitys = try context.fetch(DiaryEntity.fetchRequest())
         let diaryEntrys = diaryEntitys.map {
@@ -47,7 +46,6 @@ extension CoreDataDiaryManager: DiaryReadable {
 
 // MARK: - Manage Diary
 extension CoreDataDiaryManager: DiaryManageable {
-
     func storeDiary(_ diary: DiaryEntry) throws {
         let fetchRequest = DiaryEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: NameSpace.idEqualFormat, diary.id as CVarArg)

@@ -9,6 +9,7 @@ import Foundation
 
 enum DateFormatManager {
     
+    // MARK: - Static Function
     static func dateString(localeDateFormatter: LocaleDateFormatterProtocol) -> String {
         return localeDateFormatter.string(from: Date())
     }

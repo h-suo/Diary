@@ -9,7 +9,6 @@ import XCTest
 @testable import Diary
 
 final class DiaryTests: XCTestCase {
-
     func test_sample_Asset_data를_디코딩할_때_Diary와_매칭_시킬_수_있습니다() {
         // given
         let asset = NSDataAsset.init(name: "sample")
