@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DiaryViewControllerDelegate: AnyObject {
-    func diaryViewController(_ diaryViewController: DiaryViewController, updateDiary isSuccess: Bool)
-}
-
 final class DiaryViewController: UIViewController, AppResignObservable {
     
     // MARK: - Private Property
