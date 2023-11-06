@@ -12,7 +12,11 @@
 		4541CC482A9DB67D0095C258 /* LocaleDateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541CC472A9DB67D0095C258 /* LocaleDateFormatterProtocol.swift */; };
 		4541CC4A2A9DB6AC0095C258 /* UserDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541CC492A9DB6AC0095C258 /* UserDateFormatter.swift */; };
 		4541CC4E2A9DB7140095C258 /* DiaryManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541CC4D2A9DB7140095C258 /* DiaryManageable.swift */; };
+		454809862AF8AB340032E18B /* CurrentWeatherEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454809852AF8AB340032E18B /* CurrentWeatherEndPoint.swift */; };
+		454809882AF8AB420032E18B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454809872AF8AB420032E18B /* NetworkManager.swift */; };
 		4548098B2AF8ABEF0032E18B /* DiaryViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4548098A2AF8ABEF0032E18B /* DiaryViewControllerDelegate.swift */; };
+		4548098D2AF8C3A40032E18B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4548098C2AF8C3A40032E18B /* NetworkError.swift */; };
+		4548098F2AF8C3E60032E18B /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4548098E2AF8C3E60032E18B /* NetworkConfigurable.swift */; };
 		455170EB2A9EE5C1002A043C /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455170EA2A9EE5C1002A043C /* DiaryViewController.swift */; };
 		455170F12A9F0007002A043C /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455170F02A9F0007002A043C /* UITextView+.swift */; };
 		455171082AA07797002A043C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 455171072AA07797002A043C /* .swiftlint.yml */; };
@@ -58,7 +62,11 @@
 		4541CC472A9DB67D0095C258 /* LocaleDateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDateFormatterProtocol.swift; sourceTree = "<group>"; };
 		4541CC492A9DB6AC0095C258 /* UserDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateFormatter.swift; sourceTree = "<group>"; };
 		4541CC4D2A9DB7140095C258 /* DiaryManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryManageable.swift; sourceTree = "<group>"; };
+		454809852AF8AB340032E18B /* CurrentWeatherEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherEndPoint.swift; sourceTree = "<group>"; };
+		454809872AF8AB420032E18B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4548098A2AF8ABEF0032E18B /* DiaryViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewControllerDelegate.swift; sourceTree = "<group>"; };
+		4548098C2AF8C3A40032E18B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4548098E2AF8C3E60032E18B /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
 		455170D22A9EDA85002A043C /* AssetDiaryReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDiaryReaderTests.swift; sourceTree = "<group>"; };
 		455170DF2A9EDBF4002A043C /* DateFormatManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatManagerTests.swift; sourceTree = "<group>"; };
 		455170EA2A9EE5C1002A043C /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +117,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454809832AF8A7740032E18B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				454809842AF8AB0D0032E18B /* Protocol */,
+				45F052272A9DD0D8004B5225 /* DTO */,
+				454809902AF8D0C30032E18B /* EndPoint */,
+				454809872AF8AB420032E18B /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		454809842AF8AB0D0032E18B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4548098E2AF8C3E60032E18B /* NetworkConfigurable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		454809892AF8ABC80032E18B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +143,14 @@
 				4548098A2AF8ABEF0032E18B /* DiaryViewControllerDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		454809902AF8D0C30032E18B /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				454809852AF8AB340032E18B /* CurrentWeatherEndPoint.swift */,
+			);
+			path = EndPoint;
 			sourceTree = "<group>";
 		};
 		455170EE2A9EFFEC002A043C /* Util */ = {
@@ -142,6 +177,7 @@
 			children = (
 				45A131F52AA0B98F00433FCC /* StorageError.swift */,
 				45D0051E2AA5D8340060036B /* ConversionError.swift */,
+				4548098C2AF8C3A40032E18B /* NetworkError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -194,8 +230,8 @@
 		45C4AF802A9C9BF2003142B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45DEDCC32AABFA0200F55804 /* Protocol */,
 				45B7E0D32AF36F8600475876 /* Entity */,
-				45F052272A9DD0D8004B5225 /* DTO */,
 				45F052252A9DD081004B5225 /* Reader */,
 				45F052262A9DD0A1004B5225 /* LocaleDateFormatter */,
 			);
@@ -291,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				45C4AF7D2A9C9B79003142B6 /* Application */,
-				45DEDCC32AABFA0200F55804 /* Protocol */,
+				454809832AF8A7740032E18B /* Network */,
 				45C4AF802A9C9BF2003142B6 /* Model */,
 				45C4AF7E2A9C9B84003142B6 /* Controller */,
 				45C4AF7F2A9C9BE4003142B6 /* View */,
@@ -438,12 +474,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454809882AF8AB420032E18B /* NetworkManager.swift in Sources */,
+				4548098D2AF8C3A40032E18B /* NetworkError.swift in Sources */,
+				454809862AF8AB340032E18B /* CurrentWeatherEndPoint.swift in Sources */,
 				C739AE29284DF28600741E8F /* DiaryListViewController.swift in Sources */,
 				4541CC4E2A9DB7140095C258 /* DiaryManageable.swift in Sources */,
 				45C4AF842A9CA0A1003142B6 /* Diary.swift in Sources */,
 				4541CC422A9D95CE0095C258 /* AssetDiaryReader.swift in Sources */,
 				C739AE25284DF28600741E8F /* AppDelegate.swift in Sources */,
 				45A131F62AA0B98F00433FCC /* StorageError.swift in Sources */,
+				4548098F2AF8C3E60032E18B /* NetworkConfigurable.swift in Sources */,
 				45DEDCC72AAC057200F55804 /* AlertManager.swift in Sources */,
 				4548098B2AF8ABEF0032E18B /* DiaryViewControllerDelegate.swift in Sources */,
 				4541CC442A9D9B4A0095C258 /* DateFormatManager.swift in Sources */,
