@@ -15,6 +15,8 @@ enum HttpMethod: String {
 }
 
 protocol NetworkConfigurable {
+    associatedtype Response
+    
     var baseURL: String { get }
     var path: String { get }
     var method: HttpMethod { get }

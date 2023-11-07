@@ -8,6 +8,10 @@
 import Foundation
 
 struct CurrentWeatherEndPoint: NetworkConfigurable {
+    
+    // MARK: - DTO Type
+    typealias Response = WeatherResponse
+    
     // MARK: - Property
     var baseURL: String
     var path: String

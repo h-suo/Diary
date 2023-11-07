@@ -7,20 +7,18 @@
 
 import Foundation
 
-protocol NetworkManageable {
-    func request<DTO: Decodable>(with endpoint: NetworkConfigurable, completion: @escaping (Result<DTO, NetworkError>) -> Void)
-    func request(_ url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void)
-}
-
 final class NetworkManager: NetworkManageable {
     
+    // MARK: - Private Property
     private let session: URLSession
     
+    // MARK: - Initializer
     init(session: URLSession = .shared) {
         self.session = session
     }
     
-    func request<DTO: Decodable>(with endpoint: NetworkConfigurable, completion: @escaping (Result<DTO, NetworkError>) -> Void) {
+    // MARK: - NetworkManageable Method
+    func request<DTO: Decodable, EndPoint: NetworkConfigurable>(with endpoint: EndPoint, completion: @escaping (Result<DTO, NetworkError>) -> Void) where EndPoint.Response == DTO {
         do {
             let request = try endpoint.urlRequest()
             
@@ -43,7 +41,7 @@ final class NetworkManager: NetworkManageable {
         }
     }
     
-    func request(_ url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+    func request(with url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         session.dataTask(with: url) { [weak self] data, response, error in
             self?.checkError(with: data, response, error, completion: { result in
                 completion(result)
@@ -51,6 +49,7 @@ final class NetworkManager: NetworkManageable {
         }.resume()
     }
     
+    // MARK: - Private Method
     private func checkError(with data: Data?, _ response: URLResponse?, _ error: Error?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         if let error = error {
             completion(.failure(NetworkError.dataTask(error)))
