@@ -19,6 +19,7 @@ struct Diary: Decodable {
     }
 }
 
+// MARK: - Conversion Entity
 extension Diary {
     func diaryEntry() -> DiaryEntry {
         let creationDate = DateFormatManager.string(localeDateFormatter: UserDateFormatter.shared, timestamp: creationDate)
