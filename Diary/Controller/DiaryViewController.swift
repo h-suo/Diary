@@ -24,7 +24,7 @@ final class DiaryViewController: UIViewController, AppResignObservable {
     // MARK: - Property
     weak var delegate: DiaryViewControllerDelegate?
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     init(diaryManager: DiaryManageable, diaryEntry: DiaryEntry?) {
         self.diaryManager = diaryManager
         self.diaryEntry = diaryEntry
@@ -36,6 +36,7 @@ final class DiaryViewController: UIViewController, AppResignObservable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
         

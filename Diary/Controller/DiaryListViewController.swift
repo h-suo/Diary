@@ -32,7 +32,7 @@ final class DiaryListViewController: UIViewController {
         return dataSource
     }()
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     init(diaryReader: DiaryReadable, diaryManager: DiaryManageable) {
         self.diaryReader = diaryReader
         self.diaryManager = diaryManager
@@ -44,6 +44,7 @@ final class DiaryListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
         

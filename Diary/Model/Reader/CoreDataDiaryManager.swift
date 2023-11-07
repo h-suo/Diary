@@ -17,7 +17,7 @@ final class CoreDataDiaryManager {
         return persistentContainer.viewContext
     }
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
     }

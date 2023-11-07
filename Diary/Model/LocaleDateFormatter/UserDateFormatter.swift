@@ -25,6 +25,6 @@ final class UserDateFormatter: LocaleDateFormatterProtocol {
         return dateFormatter
     }()
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     private init() {}
 }
