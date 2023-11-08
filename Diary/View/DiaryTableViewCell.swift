@@ -31,9 +31,8 @@ final class DiaryTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let dateAndBodyStackView: UIStackView = {
+    private let dateAndBodyView: UIView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fill
@@ -44,14 +43,24 @@ final class DiaryTableViewCell: UITableViewCell {
     
     private let creationDateLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         
         return label
     }()
     
+    private let weatherImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
+        return imageView
+    }()
+    
     private let bodyLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         
         return label
@@ -93,7 +102,7 @@ extension DiaryTableViewCell {
     private func configureUI() {
         configureContentView()
         configureDiaryStackView()
-        configureDateAndBodyStackView()
+        configureDateAndBodyView()
     }
     
     private func configureContentView() {
@@ -101,13 +110,15 @@ extension DiaryTableViewCell {
     }
     
     private func configureDiaryStackView() {
-        diaryStackView.addArrangedSubview(titleLabel)
-        diaryStackView.addArrangedSubview(dateAndBodyStackView)
+        [titleLabel, dateAndBodyView].forEach {
+            diaryStackView.addArrangedSubview($0)
+        }
     }
     
-    private func configureDateAndBodyStackView() {
-        dateAndBodyStackView.addArrangedSubview(creationDateLabel)
-        dateAndBodyStackView.addArrangedSubview(bodyLabel)
+    private func configureDateAndBodyView() {
+        [creationDateLabel, weatherImage, bodyLabel].forEach {
+            dateAndBodyView.addSubview($0)
+        }
     }
 }
 
@@ -115,6 +126,9 @@ extension DiaryTableViewCell {
 extension DiaryTableViewCell {
     private func setupConstraints() {
         setupDiaryStackViewConstraints()
+        setupCreationDateLabelConstraints()
+        setupWeatherImageConstraints()
+        setupBodyLabelConstraints()
     }
     
     private func setupDiaryStackViewConstraints() {
@@ -123,6 +137,29 @@ extension DiaryTableViewCell {
             diaryStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             diaryStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             diaryStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        ])
+    }
+    
+    private func setupCreationDateLabelConstraints() {
+        NSLayoutConstraint.activate([
+            creationDateLabel.leadingAnchor.constraint(equalTo: dateAndBodyView.leadingAnchor),
+            creationDateLabel.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor)
+        ])
+    }
+    
+    private func setupWeatherImageConstraints() {
+        NSLayoutConstraint.activate([
+            weatherImage.leadingAnchor.constraint(equalTo: creationDateLabel.trailingAnchor, constant: 4),
+            weatherImage.topAnchor.constraint(equalTo: dateAndBodyView.topAnchor),
+            weatherImage.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor)
+        ])
+    }
+    
+    private func setupBodyLabelConstraints() {
+        NSLayoutConstraint.activate([
+            bodyLabel.leadingAnchor.constraint(equalTo: weatherImage.trailingAnchor, constant: 4),
+            bodyLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateAndBodyView.trailingAnchor),
+            bodyLabel.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor)
         ])
     }
 }
