@@ -22,6 +22,7 @@
 		455170EB2A9EE5C1002A043C /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455170EA2A9EE5C1002A043C /* DiaryViewController.swift */; };
 		455170F12A9F0007002A043C /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455170F02A9F0007002A043C /* UITextView+.swift */; };
 		455171082AA07797002A043C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 455171072AA07797002A043C /* .swiftlint.yml */; };
+		4571AA622AFCDF3800DC5D26 /* MappingModelV1ToV2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4571AA612AFCDF3800DC5D26 /* MappingModelV1ToV2.xcmappingmodel */; };
 		45A131F32AA0B5B200433FCC /* DiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DEA7642A9D929E00D8F686 /* DiaryTests.swift */; };
 		45A131F62AA0B98F00433FCC /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A131F52AA0B98F00433FCC /* StorageError.swift */; };
 		45A131F82AA0C6C700433FCC /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A131F72AA0C6C600433FCC /* UIAlertController+.swift */; };
@@ -76,6 +77,8 @@
 		455170EA2A9EE5C1002A043C /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		455170F02A9F0007002A043C /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		455171072AA07797002A043C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4571AA602AFCDEA700DC5D26 /* Diary v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Diary v2.xcdatamodel"; sourceTree = "<group>"; };
+		4571AA612AFCDF3800DC5D26 /* MappingModelV1ToV2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModelV1ToV2.xcmappingmodel; sourceTree = "<group>"; };
 		45A131F52AA0B98F00433FCC /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		45A131F72AA0C6C600433FCC /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		45AD43EE2AB01A4B00A1D8A7 /* DiaryReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryReadable.swift; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				C739AE2D284DF28600741E8F /* DiaryData.xcdatamodeld */,
+				4571AA612AFCDF3800DC5D26 /* MappingModelV1ToV2.xcmappingmodel */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -392,7 +396,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					45DEA7612A9D929E00D8F686 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -499,6 +503,7 @@
 				45DEDCCB2AAD932100F55804 /* AppResignObservable.swift in Sources */,
 				45A131F82AA0C6C700433FCC /* UIAlertController+.swift in Sources */,
 				4541CC4A2A9DB6AC0095C258 /* UserDateFormatter.swift in Sources */,
+				4571AA622AFCDF3800DC5D26 /* MappingModelV1ToV2.xcmappingmodel in Sources */,
 				45D0051B2AA5CEEE0060036B /* DiaryEntity+CoreDataProperties.swift in Sources */,
 				45AD43EF2AB01A4B00A1D8A7 /* DiaryReadable.swift in Sources */,
 				C739AE2F284DF28600741E8F /* DiaryData.xcdatamodeld in Sources */,
@@ -544,6 +549,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -566,6 +572,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -787,9 +794,10 @@
 		C739AE2D284DF28600741E8F /* DiaryData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				4571AA602AFCDEA700DC5D26 /* Diary v2.xcdatamodel */,
 				C739AE2E284DF28600741E8F /* Diary.xcdatamodel */,
 			);
-			currentVersion = C739AE2E284DF28600741E8F /* Diary.xcdatamodel */;
+			currentVersion = 4571AA602AFCDEA700DC5D26 /* Diary v2.xcdatamodel */;
 			path = DiaryData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
