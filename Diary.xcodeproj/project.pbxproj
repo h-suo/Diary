@@ -40,6 +40,7 @@
 		45DEDCC72AAC057200F55804 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DEDCC62AAC057100F55804 /* AlertManager.swift */; };
 		45DEDCC92AAD651100F55804 /* ActivityViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DEDCC82AAD651100F55804 /* ActivityViewManager.swift */; };
 		45DEDCCB2AAD932100F55804 /* AppResignObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DEDCCA2AAD932100F55804 /* AppResignObservable.swift */; };
+		45ED8DE32AFE10AD00724D09 /* WeatherIconEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED8DE22AFE10AD00724D09 /* WeatherIconEndPoint.swift */; };
 		45F052292A9DE723004B5225 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F052282A9DE723004B5225 /* DiaryEntry.swift */; };
 		C739AE25284DF28600741E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739AE24284DF28600741E8F /* AppDelegate.swift */; };
 		C739AE27284DF28600741E8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739AE26284DF28600741E8F /* SceneDelegate.swift */; };
@@ -95,6 +96,7 @@
 		45DEDCC62AAC057100F55804 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		45DEDCC82AAD651100F55804 /* ActivityViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewManager.swift; sourceTree = "<group>"; };
 		45DEDCCA2AAD932100F55804 /* AppResignObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResignObservable.swift; sourceTree = "<group>"; };
+		45ED8DE22AFE10AD00724D09 /* WeatherIconEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconEndPoint.swift; sourceTree = "<group>"; };
 		45F052282A9DE723004B5225 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		C739AE21284DF28600741E8F /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C739AE24284DF28600741E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				454809852AF8AB340032E18B /* CurrentWeatherEndPoint.swift */,
+				45ED8DE22AFE10AD00724D09 /* WeatherIconEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				45AD43EF2AB01A4B00A1D8A7 /* DiaryReadable.swift in Sources */,
 				C739AE2F284DF28600741E8F /* DiaryData.xcdatamodeld in Sources */,
 				45DEDCC92AAD651100F55804 /* ActivityViewManager.swift in Sources */,
+				45ED8DE32AFE10AD00724D09 /* WeatherIconEndPoint.swift in Sources */,
 				455170F12A9F0007002A043C /* UITextView+.swift in Sources */,
 				45D0051D2AA5D02F0060036B /* CoreDataDiaryManager.swift in Sources */,
 				454809C72AFA26390032E18B /* NetworkManageable.swift in Sources */,
