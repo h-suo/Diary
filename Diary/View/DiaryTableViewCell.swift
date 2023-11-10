@@ -87,6 +87,10 @@ extension DiaryTableViewCell {
         creationDateLabel.text = diaryEntry.creationDate
         bodyLabel.text = diaryEntry.body
     }
+    
+    func setupWeatherIcon(_ image: UIImage?) {
+        weatherImage.image = image
+    }
 }
 
 // MARK: - Setup UI Object
@@ -151,7 +155,8 @@ extension DiaryTableViewCell {
         NSLayoutConstraint.activate([
             weatherImage.leadingAnchor.constraint(equalTo: creationDateLabel.trailingAnchor, constant: 4),
             weatherImage.topAnchor.constraint(equalTo: dateAndBodyView.topAnchor),
-            weatherImage.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor)
+            weatherImage.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor),
+            weatherImage.widthAnchor.constraint(equalTo: weatherImage.heightAnchor, multiplier: 1.0)
         ])
     }
     
