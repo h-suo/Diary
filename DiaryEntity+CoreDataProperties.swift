@@ -30,6 +30,6 @@ extension DiaryEntity {
         let timeStamp = DateFormatManager.timestamp(date: creationDate)
         let dateFormatString = DateFormatManager.string(localeDateFormatter: UserDateFormatter.shared, timestamp: timeStamp)
         
-        return DiaryEntry(id: id, title: title, body: body ?? "", creationDate: dateFormatString)
+        return DiaryEntry(id: id, title: title, body: body ?? "", creationDate: dateFormatString, weatherMain: weatherMain, weatherIconId: weatherIconId)
     }
 }
