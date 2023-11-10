@@ -97,6 +97,7 @@
 		45DEDCC82AAD651100F55804 /* ActivityViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewManager.swift; sourceTree = "<group>"; };
 		45DEDCCA2AAD932100F55804 /* AppResignObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResignObservable.swift; sourceTree = "<group>"; };
 		45ED8DE22AFE10AD00724D09 /* WeatherIconEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconEndPoint.swift; sourceTree = "<group>"; };
+		45ED8DE42AFE151F00724D09 /* API_KEY.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
 		45F052282A9DE723004B5225 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		C739AE21284DF28600741E8F /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C739AE24284DF28600741E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 				C739AE30284DF28600741E8F /* Assets.xcassets */,
 				C739AE32284DF28600741E8F /* LaunchScreen.storyboard */,
 				C739AE35284DF28600741E8F /* Info.plist */,
+				45ED8DE42AFE151F00724D09 /* API_KEY.xcconfig */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -548,6 +550,7 @@
 /* Begin XCBuildConfiguration section */
 		45DEA7682A9D929E00D8F686 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45ED8DE42AFE151F00724D09 /* API_KEY.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -710,6 +713,7 @@
 		};
 		C739AE39284DF28600741E8F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45ED8DE42AFE151F00724D09 /* API_KEY.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

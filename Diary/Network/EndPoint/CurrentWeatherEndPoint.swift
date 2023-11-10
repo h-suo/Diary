@@ -25,7 +25,7 @@ struct CurrentWeatherEndPoint: NetworkConfigurable {
           lat: String,
           lon: String
     ) {
-        guard let apikey = Bundle.main.object(forInfoDictionaryKey: "") as? String else {
+        guard let apikey = Bundle.main.object(forInfoDictionaryKey: "OPENWEATHER_API_KEY") as? String else {
             return nil
         }
         
