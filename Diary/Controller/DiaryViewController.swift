@@ -7,11 +7,15 @@
 
 import UIKit
 
+typealias LocationData = (latitude: String, longitude: String)
+
 final class DiaryViewController: UIViewController, AppResignObservable {
     
     // MARK: - Private Property
     private let diaryManager: DiaryManageable
+    private let networkManager: NetworkManager
     private var diaryEntry: DiaryEntry?
+    private let location: LocationData?
     private let textView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,9 +29,11 @@ final class DiaryViewController: UIViewController, AppResignObservable {
     weak var delegate: DiaryViewControllerDelegate?
     
     // MARK: - Initializer
-    init(diaryManager: DiaryManageable, diaryEntry: DiaryEntry?) {
+    init(diaryManager: DiaryManageable, networkManager: NetworkManager, diaryEntry: DiaryEntry?, location: LocationData?) {
         self.diaryManager = diaryManager
+        self.networkManager = networkManager
         self.diaryEntry = diaryEntry
+        self.location = location
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -53,6 +59,22 @@ extension DiaryViewController {
     private func setupContentTextView() {
         if let diaryEntry = diaryEntry {
             textView.text = String(format: NameSpace.diaryFormat, diaryEntry.title, diaryEntry.body)
+        }
+    }
+    
+    private func storeDiary(title: String, body: String, weatherResponse: WeatherResponse?) {
+        do {
+            if var diaryEntry {
+                diaryEntry.title = title
+                diaryEntry.body = body
+                try diaryManager.updateDiary(diaryEntry)
+                delegate?.diaryViewController(self, updateDiary: true)
+            } else {
+                try diaryManager.createDiary(title: title, body: body, weatherResponse: weatherResponse)
+                delegate?.diaryViewController(self, updateDiary: true)
+            }
+        } catch {
+            self.presentFailAlert()
         }
     }
 }
@@ -146,29 +168,26 @@ extension DiaryViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         let diaryContents = textView.text.components(separatedBy: NameSpace.enter).filter { $0.isEmpty == false }
         
-        if diaryContents.isEmpty {
-            return
-        }
-        
-        guard let title = diaryContents.first else {
+        guard let title = diaryContents.first,
+              !diaryContents.isEmpty else {
             return
         }
         
         let body = diaryContents.dropFirst().joined(separator: NameSpace.enter)
         
-        do {
-            if var diaryEntry {
-                diaryEntry.title = title
-                diaryEntry.body = body
-                try diaryManager.storeDiary(diaryEntry)
-                delegate?.diaryViewController(self, updateDiary: true)
-            } else {
-                let diaryEntry = DiaryEntry(title: title, body: body)
-                try diaryManager.storeDiary(diaryEntry)
-                delegate?.diaryViewController(self, updateDiary: true)
+        guard let location,
+              let endPoint = CurrentWeatherEndPoint(lat: location.latitude, lon: location.longitude) else {
+            storeDiary(title: title, body: body, weatherResponse: nil)
+            return
+        }
+        
+        networkManager.request(with: endPoint) { result in
+            switch result {
+            case .success(let weatherResponse):
+                self.storeDiary(title: title, body: body, weatherResponse: weatherResponse)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-        } catch {
-            self.presentFailAlert()
         }
     }
 }

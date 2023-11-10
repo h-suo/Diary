@@ -33,7 +33,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: DiaryListViewController(diaryReader: coreDateDiaryManager, diaryManager: coreDateDiaryManager))
+        window?.rootViewController = UINavigationController(rootViewController: DiaryListViewController(diaryReader: coreDateDiaryManager, diaryManager: coreDateDiaryManager, networkManager: NetworkManager()))
         window?.makeKeyAndVisible()
     }
 }

@@ -5,12 +5,15 @@
 // 
 
 import UIKit
+import CoreLocation
 
 final class DiaryListViewController: UIViewController {
     
     // MARK: - Private Property
     private let diaryReader: DiaryReadable
     private let diaryManager: DiaryManageable
+    private let networkManager: NetworkManager
+    private let loactionManager: CLLocationManager
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,13 +21,36 @@ final class DiaryListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var dataSource: UITableViewDiffableDataSource = {        
+    private lazy var dataSource: UITableViewDiffableDataSource = {
         let dataSource = UITableViewDiffableDataSource<Section, DiaryEntry>(tableView: tableView, cellProvider: { tableView, indexPath, item in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier, for: indexPath) as? DiaryTableViewCell else {
                 return UITableViewCell()
             }
             
             cell.setupContent(item)
+            
+            guard let weatherIconId = item.weatherIconId else {
+                return cell
+            }
+            
+            do {
+                let url = try WeatherIconEndPoint(iconId: weatherIconId).url()
+                
+                self.networkManager.request(with: url) { result in
+                    switch result {
+                    case .success(let data):
+                        let weatherIcon = UIImage(data: data)
+                        
+                        DispatchQueue.main.async {
+                            cell.setupWeatherIcon(weatherIcon)
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
             
             return cell
         })
@@ -33,9 +59,11 @@ final class DiaryListViewController: UIViewController {
     }()
     
     // MARK: - Initializer
-    init(diaryReader: DiaryReadable, diaryManager: DiaryManageable) {
+    init(diaryReader: DiaryReadable, diaryManager: DiaryManageable, networkManager: NetworkManager) {
         self.diaryReader = diaryReader
         self.diaryManager = diaryManager
+        self.networkManager = networkManager
+        self.loactionManager = CLLocationManager()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,6 +80,7 @@ final class DiaryListViewController: UIViewController {
         configureUI()
         setupConstraints()
         setupContentTableView()
+        setupLocationManager()
     }
 }
 
@@ -95,10 +124,32 @@ extension DiaryListViewController {
     }
 }
 
+// MARK: - Setup Location Manager
+extension DiaryListViewController: CLLocationManagerDelegate {
+    private func setupLocationManager() {
+        loactionManager.delegate = self
+        loactionManager.desiredAccuracy = kCLLocationAccuracyBest
+        loactionManager.requestWhenInUseAuthorization()
+        loactionManager.startUpdatingLocation()
+    }
+    
+    private func fetchUserLoactionData() -> LocationData? {
+        let location = loactionManager.location
+        
+        guard let latitude = location?.coordinate.latitude,
+              let longitude = location?.coordinate.longitude else {
+            return nil
+        }
+        
+        return (String(latitude), String(longitude))
+    }
+}
+
 // MARK: - Push & Present Controller
 extension DiaryListViewController {
     @objc private func pushDiaryViewController() {
-        let diaryViewController = DiaryViewController(diaryManager: diaryManager, diaryEntry: nil)
+        let locationData = fetchUserLoactionData()
+        let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: nil, location: locationData)
         diaryViewController.delegate = self
         
         navigationController?.pushViewController(diaryViewController, animated: true)
@@ -133,7 +184,7 @@ extension DiaryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         do {
             let diaryEntry = try diaryReader.diaryEntrys()[indexPath.row]
-            let diaryViewController = DiaryViewController(diaryManager: diaryManager, diaryEntry: diaryEntry)
+            let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: diaryEntry, location: nil)
             diaryViewController.delegate = self
             
             navigationController?.pushViewController(diaryViewController, animated: true)
