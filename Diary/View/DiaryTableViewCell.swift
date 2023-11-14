@@ -19,7 +19,7 @@ final class DiaryTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 8
+        stackView.spacing = 4
         
         return stackView
     }()
@@ -147,15 +147,16 @@ extension DiaryTableViewCell {
     private func setupCreationDateLabelConstraints() {
         NSLayoutConstraint.activate([
             creationDateLabel.leadingAnchor.constraint(equalTo: dateAndBodyView.leadingAnchor),
-            creationDateLabel.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor)
+            creationDateLabel.topAnchor.constraint(equalTo: dateAndBodyView.topAnchor),
+            creationDateLabel.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor)
         ])
     }
     
     private func setupWeatherImageConstraints() {
         NSLayoutConstraint.activate([
             weatherImage.leadingAnchor.constraint(equalTo: creationDateLabel.trailingAnchor, constant: 4),
-            weatherImage.topAnchor.constraint(equalTo: dateAndBodyView.topAnchor),
-            weatherImage.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor),
+            weatherImage.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor),
+            weatherImage.heightAnchor.constraint(equalToConstant: 24),
             weatherImage.widthAnchor.constraint(equalTo: weatherImage.heightAnchor, multiplier: 1.0)
         ])
     }
