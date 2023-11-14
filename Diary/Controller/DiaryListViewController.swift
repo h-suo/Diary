@@ -156,15 +156,25 @@ extension DiaryListViewController {
     }
     
     @objc private func presentFailAlert() {
-        AlertManager.presentFailAlert(to: self, with: NameSpace.failMessage)
+        let alert = AlertManager
+            .failAlertManager()
+            .setMessage(NameSpace.failMessage)
+            .buildAlert()
+        
+        present(alert, animated: true)
     }
     
     private func presentFailDataLoadAlert() {
-        AlertManager.presentFailAlert(to: self, with: NameSpace.failLoadDataMessage)
+        let alert = AlertManager
+            .failAlertManager()
+            .setMessage(NameSpace.failLoadDataMessage)
+            .buildAlert()
+        
+        present(alert, animated: true)        
     }
     
     private func presentDeleteAlert(diaryEntry: DiaryEntry) {
-        AlertManager.presentDeleteAlert(to: self) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
             guard let self else {
                 return
             }
@@ -176,6 +186,13 @@ extension DiaryListViewController {
                 presentFailAlert()
             }
         }
+        
+        let alert = AlertManager
+            .deleteAlertManager()
+            .setAction(deleteAction)
+            .buildAlert()
+        
+        present(alert, animated: true)
     }
 }
 
