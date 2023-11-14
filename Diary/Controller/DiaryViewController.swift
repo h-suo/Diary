@@ -15,7 +15,7 @@ final class DiaryViewController: UIViewController, AppResignObservable {
     private let diaryManager: DiaryManageable
     private let networkManager: NetworkManager
     private var diaryEntry: DiaryEntry?
-    private let location: LocationData?
+    private let locationData: LocationData?
     private let textView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,11 +29,11 @@ final class DiaryViewController: UIViewController, AppResignObservable {
     weak var delegate: DiaryViewControllerDelegate?
     
     // MARK: - Initializer
-    init(diaryManager: DiaryManageable, networkManager: NetworkManager, diaryEntry: DiaryEntry?, location: LocationData?) {
+    init(diaryManager: DiaryManageable, networkManager: NetworkManager, diaryEntry: DiaryEntry?, locationData: LocationData?) {
         self.diaryManager = diaryManager
         self.networkManager = networkManager
         self.diaryEntry = diaryEntry
-        self.location = location
+        self.locationData = locationData
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -187,8 +187,8 @@ extension DiaryViewController: UITextViewDelegate {
         
         let body = diaryContents.dropFirst().joined(separator: NameSpace.enter)
         
-        guard let location,
-              let endPoint = CurrentWeatherEndPoint(lat: location.latitude, lon: location.longitude) else {
+        guard let locationData,
+              let endPoint = CurrentWeatherEndPoint(lat: locationData.latitude, lon: locationData.longitude) else {
             storeDiary(title: title, body: body, weatherResponse: nil)
             return
         }

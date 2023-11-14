@@ -14,6 +14,7 @@ final class DiaryListViewController: UIViewController {
     private let diaryManager: DiaryManageable
     private let networkManager: NetworkManager
     private let loactionManager: CLLocationManager
+    private var locationData: LocationData?
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +65,7 @@ final class DiaryListViewController: UIViewController {
         self.diaryManager = diaryManager
         self.networkManager = networkManager
         self.loactionManager = CLLocationManager()
+        self.locationData = nil
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -133,23 +135,22 @@ extension DiaryListViewController: CLLocationManagerDelegate {
         loactionManager.startUpdatingLocation()
     }
     
-    private func fetchUserLoactionData() -> LocationData? {
-        let location = loactionManager.location
-        
-        guard let latitude = location?.coordinate.latitude,
-              let longitude = location?.coordinate.longitude else {
-            return nil
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            return
         }
         
-        return (String(latitude), String(longitude))
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        locationData = (String(latitude), String(longitude))
     }
 }
 
 // MARK: - Push & Present Controller
 extension DiaryListViewController {
     @objc private func pushDiaryViewController() {
-        let locationData = fetchUserLoactionData()
-        let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: nil, location: locationData)
+        let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: nil, locationData: locationData)
         diaryViewController.delegate = self
         
         navigationController?.pushViewController(diaryViewController, animated: true)
@@ -170,7 +171,7 @@ extension DiaryListViewController {
             .setMessage(NameSpace.failLoadDataMessage)
             .buildAlert()
         
-        present(alert, animated: true)        
+        present(alert, animated: true)
     }
     
     private func presentDeleteAlert(diaryEntry: DiaryEntry) {
@@ -201,7 +202,7 @@ extension DiaryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         do {
             let diaryEntry = try diaryReader.diaryEntrys()[indexPath.row]
-            let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: diaryEntry, location: nil)
+            let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: diaryEntry, locationData: nil)
             diaryViewController.delegate = self
             
             navigationController?.pushViewController(diaryViewController, animated: true)
