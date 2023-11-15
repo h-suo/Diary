@@ -204,6 +204,8 @@
 		45B7E0D32AF36F8600475876 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				45D005182AA5CEEE0060036B /* DiaryEntity+CoreDataClass.swift */,
+				45D005192AA5CEEE0060036B /* DiaryEntity+CoreDataProperties.swift */,
 				45F052282A9DE723004B5225 /* DiaryEntry.swift */,
 			);
 			path = Entity;
@@ -317,8 +319,6 @@
 		C739AE18284DF28600741E8F = {
 			isa = PBXGroup;
 			children = (
-				45D005182AA5CEEE0060036B /* DiaryEntity+CoreDataClass.swift */,
-				45D005192AA5CEEE0060036B /* DiaryEntity+CoreDataProperties.swift */,
 				455171072AA07797002A043C /* .swiftlint.yml */,
 				C739AE23284DF28600741E8F /* Diary */,
 				45DEA7632A9D929E00D8F686 /* DiaryTests */,
