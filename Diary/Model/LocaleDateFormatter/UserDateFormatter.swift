@@ -14,13 +14,10 @@ final class UserDateFormatter: LocaleDateFormatterProtocol {
     
     // MARK: - Property
     var dateFormatter: DateFormatter = {
-        let userLocale = Locale.current
-        let userTimeZone = TimeZone.current
-        
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: userLocale.identifier)
-        dateFormatter.setLocalizedDateFormatFromTemplate("dd MMM yyyy")
-        dateFormatter.timeZone = TimeZone(identifier: userTimeZone.identifier)
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateStyle = .long
 
         return dateFormatter
     }()
