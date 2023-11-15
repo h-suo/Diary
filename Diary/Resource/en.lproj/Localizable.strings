@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by Erick on 2023/11/15.
+  
+*/
+
+"Diary" = "Diary";
+"Delete" = "Delete";
+"Share" = "Share";
+"Cancel" = "Cancel";
+"Done" = "Done";
+"OK" = "OK";
+"Fail" = "Fail";
+"FailLoadData" = "Data load failed.";
+"FailOperation" = "The operation failed.";
+"DeleteMessage" = "Are you sure you want to delete it?";

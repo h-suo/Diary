@@ -34,7 +34,7 @@ extension NetworkConfigurable {
     }
     
     func url() throws -> URL {
-        let fullPath = "\(baseURL)/\(path)"
+        let fullPath = String(format: NameSpace.fullPathFormat, baseURL, path)
         
         guard var urlComponents = URLComponents(string: fullPath) else {
             throw NetworkError.invalidURL

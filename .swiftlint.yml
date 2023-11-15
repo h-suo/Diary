@@ -5,3 +5,4 @@ disabled_rules:
 excluded:
 - Diary/Application/AppDelegate.swift
 - Diary/Application/SceneDelegate.swift
+- Diary/Util/NameSpace.swift

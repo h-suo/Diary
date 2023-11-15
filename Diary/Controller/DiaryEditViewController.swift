@@ -142,7 +142,7 @@ extension DiaryEditViewController {
     }
     
     private func presentDeleteAlert(diaryEntry: DiaryEntry) {
-        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: NameSpace.delete, style: .destructive) { [weak self] _ in
             guard let self else {
                 return
             }
@@ -167,7 +167,7 @@ extension DiaryEditViewController {
     private func presentFailAlert() {
         let alert = AlertManager
             .failAlertManager()
-            .setMessage(NameSpace.failMessage)
+            .setMessage(NameSpace.failOperation)
             .buildAlert()
         
         present(alert, animated: true)
@@ -234,19 +234,5 @@ extension DiaryEditViewController {
             textView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             textView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
-    }
-}
-
-// MARK: - Name Space
-extension DiaryEditViewController {
-    private enum NameSpace {
-        static let share = "share..."
-        static let delete = "Delete"
-        static let cancel = "Cancel"
-        static let done = "완료"
-        static let ellipsis = "ellipsis"
-        static let enter = "\n"
-        static let diaryFormat = "%@\n%@"
-        static let failMessage = "작업에 실패했습니다."
     }
 }

@@ -159,7 +159,7 @@ extension DiaryListViewController {
     @objc private func presentFailAlert() {
         let alert = AlertManager
             .failAlertManager()
-            .setMessage(NameSpace.failMessage)
+            .setMessage(NameSpace.failOperation)
             .buildAlert()
         
         present(alert, animated: true)
@@ -168,14 +168,14 @@ extension DiaryListViewController {
     private func presentFailDataLoadAlert() {
         let alert = AlertManager
             .failAlertManager()
-            .setMessage(NameSpace.failLoadDataMessage)
+            .setMessage(NameSpace.failLoadData)
             .buildAlert()
         
         present(alert, animated: true)
     }
     
     private func presentDeleteAlert(diaryEntry: DiaryEntry) {
-        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: NameSpace.delete, style: .destructive) { [weak self] _ in
             guard let self else {
                 return
             }
@@ -289,17 +289,5 @@ extension DiaryListViewController {
 extension DiaryListViewController {
     private enum Section {
         case main
-    }
-}
-
-// MARK: - Name Space
-extension DiaryListViewController {
-    private enum NameSpace {
-        static let diary = "일기장"
-        static let plus = "plus"
-        static let share = "share..."
-        static let delete = "Delete"
-        static let failLoadDataMessage = "데이터 로드에 실패했습니다."
-        static let failMessage = "작업에 실패했습니다."
     }
 }

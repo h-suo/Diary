@@ -14,7 +14,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // MARK: - Private Property
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "DiaryData")
+        let container = NSPersistentContainer(name: NameSpace.diaryData)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

@@ -64,20 +64,20 @@ extension AlertManager {
 // MARK: - Managers
 extension AlertManager {
     static func failAlertManager() -> AlertManager {
-        let alertAction = UIAlertAction(title: "확인", style: .cancel)
+        let alertAction = UIAlertAction(title: NameSpace.ok, style: .cancel)
         
         return AlertManager()
-            .setTitle("실패")
+            .setTitle(NameSpace.fail)
             .setStyle(.alert)
             .setAction(alertAction)
     }
     
     static func deleteAlertManager() -> AlertManager {
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let cancelAction = UIAlertAction(title: NameSpace.cancel, style: .cancel)
         
         return AlertManager()
-            .setTitle("진짜요?")
-            .setMessage("정말로 삭제하시겠어요?")
+            .setTitle(NameSpace.delete)
+            .setMessage(NameSpace.deleteMessage)
             .setStyle(.alert)
             .setAction(cancelAction)
     }

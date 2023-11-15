@@ -91,11 +91,3 @@ extension CoreDataDiaryManager: DiaryManageable {
         try context.execute(deleteRequest)
     }
 }
-
-extension CoreDataDiaryManager {
-    private enum NameSpace {
-        static let diary = "DiaryData"
-        static let diaryEntity = "DiaryEntity"
-        static let idEqualFormat = "id == %@"
-    }
-}
