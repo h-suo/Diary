@@ -42,6 +42,14 @@ extension AlertManager {
         return self
     }
     
+    func setActions(_ alertActions: [UIAlertAction]) -> AlertManager {
+        alertActions.forEach {
+            actions.append($0)
+        }
+        
+        return self
+    }
+    
     func buildAlert() -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         

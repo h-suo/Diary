@@ -9,7 +9,7 @@ import UIKit
 
 typealias LocationData = (latitude: String, longitude: String)
 
-final class DiaryViewController: UIViewController, AppResignObservable {
+final class DiaryEditViewController: UIViewController, AppResignObservable {
     
     // MARK: - Private Property
     private let diaryManager: DiaryManageable
@@ -26,7 +26,7 @@ final class DiaryViewController: UIViewController, AppResignObservable {
     }()
     
     // MARK: - Property
-    weak var delegate: DiaryViewControllerDelegate?
+    weak var delegate: DiaryEditViewControllerDelegate?
     
     // MARK: - Initializer
     init(diaryManager: DiaryManageable, networkManager: NetworkManager, diaryEntry: DiaryEntry?, locationData: LocationData?) {
@@ -55,7 +55,7 @@ final class DiaryViewController: UIViewController, AppResignObservable {
 }
 
 // MARK: - Setup Data
-extension DiaryViewController {
+extension DiaryEditViewController {
     private func setupContentTextView() {
         if let diaryEntry = diaryEntry {
             textView.text = String(format: NameSpace.diaryFormat, diaryEntry.title, diaryEntry.body)
@@ -68,10 +68,10 @@ extension DiaryViewController {
                 diaryEntry.title = title
                 diaryEntry.body = body
                 try diaryManager.updateDiary(diaryEntry)
-                delegate?.diaryViewController(self, updateDiary: true)
+                delegate?.diaryEditViewController(self, updateDiary: true)
             } else {
                 try diaryManager.createDiary(title: title, body: body, weatherResponse: weatherResponse)
-                delegate?.diaryViewController(self, updateDiary: true)
+                delegate?.diaryEditViewController(self, updateDiary: true)
             }
         } catch {
             self.presentFailAlert()
@@ -80,7 +80,7 @@ extension DiaryViewController {
 }
 
 // MARK: - Setup UI Object
-extension DiaryViewController {
+extension DiaryEditViewController {
     private func setupUIObject() {
         setupView()
         setupNavigationItem()
@@ -113,8 +113,9 @@ extension DiaryViewController {
 }
 
 // MARK: - Push & Present Controller
-extension DiaryViewController {
+extension DiaryEditViewController {
     @objc private func presentMoreActionSheet() {
+        let cancelAction = UIAlertAction(title: NameSpace.cancel, style: .cancel)
         let shareAction = UIAlertAction(title: NameSpace.share, style: .default) { _ in
             guard let diaryEntry = self.diaryEntry else {
                 self.presentFailAlert()
@@ -131,8 +132,11 @@ extension DiaryViewController {
             
             self.presentDeleteAlert(diaryEntry: diaryEntry)
         }
-        let cancelAction = UIAlertAction(title: NameSpace.cancel, style: .cancel)
-        let actionSheet = UIAlertController.customAlert(alertTile: nil, alertMessage: nil, preferredStyle: .actionSheet, alertActions: [shareAction, deleteAction, cancelAction])
+        
+        let actionSheet = AlertManager()
+            .setStyle(.actionSheet)
+            .setActions([shareAction, deleteAction, cancelAction])
+            .buildAlert()
         
         present(actionSheet, animated: true)
     }
@@ -145,7 +149,7 @@ extension DiaryViewController {
             
             do {
                 try diaryManager.deleteDiary(diaryEntry)
-                delegate?.diaryViewController(self, updateDiary: true)
+                delegate?.diaryEditViewController(self, updateDiary: true)
                 navigationController?.popViewController(animated: true)
             } catch {
                 presentFailAlert()
@@ -171,7 +175,7 @@ extension DiaryViewController {
 }
 
 // MARK: - TextView Delegate
-extension DiaryViewController: UITextViewDelegate {
+extension DiaryEditViewController: UITextViewDelegate {
     @objc private func endEditingAndPop() {
         textView.resignFirstResponder()
         navigationController?.popViewController(animated: true)
@@ -205,7 +209,7 @@ extension DiaryViewController: UITextViewDelegate {
 }
 
 // MARK: - Configure UI
-extension DiaryViewController {
+extension DiaryEditViewController {
     private func configureUI() {
         configureView()
     }
@@ -216,7 +220,7 @@ extension DiaryViewController {
 }
 
 // MARK: - Setup Constraint
-extension DiaryViewController {
+extension DiaryEditViewController {
     private func setupConstraints() {
         setupTextViewConstraint()
     }
@@ -234,7 +238,7 @@ extension DiaryViewController {
 }
 
 // MARK: - Name Space
-extension DiaryViewController {
+extension DiaryEditViewController {
     private enum NameSpace {
         static let share = "share..."
         static let delete = "Delete"

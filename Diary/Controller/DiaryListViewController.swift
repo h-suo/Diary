@@ -150,7 +150,7 @@ extension DiaryListViewController: CLLocationManagerDelegate {
 // MARK: - Push & Present Controller
 extension DiaryListViewController {
     @objc private func pushDiaryViewController() {
-        let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: nil, locationData: locationData)
+        let diaryViewController = DiaryEditViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: nil, locationData: locationData)
         diaryViewController.delegate = self
         
         navigationController?.pushViewController(diaryViewController, animated: true)
@@ -202,7 +202,7 @@ extension DiaryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         do {
             let diaryEntry = try diaryReader.diaryEntrys()[indexPath.row]
-            let diaryViewController = DiaryViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: diaryEntry, locationData: nil)
+            let diaryViewController = DiaryEditViewController(diaryManager: diaryManager, networkManager: networkManager, diaryEntry: diaryEntry, locationData: nil)
             diaryViewController.delegate = self
             
             navigationController?.pushViewController(diaryViewController, animated: true)
@@ -247,9 +247,9 @@ extension DiaryListViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - DiaryViewControllerDelegate
-extension DiaryListViewController: DiaryViewControllerDelegate {
-    func diaryViewController(_ diaryViewController: DiaryViewController, updateDiary isSuccess: Bool) {
+// MARK: - DiaryEditViewControllerDelegate
+extension DiaryListViewController: DiaryEditViewControllerDelegate {
+    func diaryEditViewController(_ diaryViewController: DiaryEditViewController, updateDiary isSuccess: Bool) {
         if isSuccess {
             setupContentTableView()
         }
