@@ -27,41 +27,46 @@ final class DiaryTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         
         return label
     }()
     
-    private let dateAndBodyView: UIView = {
+    private let dateAndBodyStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 8
+        stackView.spacing = 4
         
         return stackView
     }()
     
     private let creationDateLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(.required, for: .vertical)
         
         return label
     }()
     
     private let weatherImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
         
         return imageView
     }()
     
     private let bodyLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -106,7 +111,7 @@ extension DiaryTableViewCell {
     private func configureUI() {
         configureContentView()
         configureDiaryStackView()
-        configureDateAndBodyView()
+        configureDateAndBodyStackView()
     }
     
     private func configureContentView() {
@@ -114,14 +119,14 @@ extension DiaryTableViewCell {
     }
     
     private func configureDiaryStackView() {
-        [titleLabel, dateAndBodyView].forEach {
+        [titleLabel, dateAndBodyStackView].forEach {
             diaryStackView.addArrangedSubview($0)
         }
     }
     
-    private func configureDateAndBodyView() {
+    private func configureDateAndBodyStackView() {
         [creationDateLabel, weatherImage, bodyLabel].forEach {
-            dateAndBodyView.addSubview($0)
+            dateAndBodyStackView.addArrangedSubview($0)
         }
     }
 }
@@ -130,9 +135,7 @@ extension DiaryTableViewCell {
 extension DiaryTableViewCell {
     private func setupConstraints() {
         setupDiaryStackViewConstraints()
-        setupCreationDateLabelConstraints()
         setupWeatherImageConstraints()
-        setupBodyLabelConstraints()
     }
     
     private func setupDiaryStackViewConstraints() {
@@ -144,28 +147,10 @@ extension DiaryTableViewCell {
         ])
     }
     
-    private func setupCreationDateLabelConstraints() {
-        NSLayoutConstraint.activate([
-            creationDateLabel.leadingAnchor.constraint(equalTo: dateAndBodyView.leadingAnchor),
-            creationDateLabel.topAnchor.constraint(equalTo: dateAndBodyView.topAnchor),
-            creationDateLabel.bottomAnchor.constraint(equalTo: dateAndBodyView.bottomAnchor)
-        ])
-    }
-    
     private func setupWeatherImageConstraints() {
         NSLayoutConstraint.activate([
-            weatherImage.leadingAnchor.constraint(equalTo: creationDateLabel.trailingAnchor, constant: 4),
-            weatherImage.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor),
-            weatherImage.heightAnchor.constraint(equalToConstant: 24),
-            weatherImage.widthAnchor.constraint(equalTo: weatherImage.heightAnchor, multiplier: 1.0)
-        ])
-    }
-    
-    private func setupBodyLabelConstraints() {
-        NSLayoutConstraint.activate([
-            bodyLabel.leadingAnchor.constraint(equalTo: weatherImage.trailingAnchor, constant: 4),
-            bodyLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateAndBodyView.trailingAnchor),
-            bodyLabel.centerYAnchor.constraint(equalTo: dateAndBodyView.centerYAnchor)
+            weatherImage.heightAnchor.constraint(equalTo: creationDateLabel.heightAnchor),
+            weatherImage.widthAnchor.constraint(equalTo: weatherImage.heightAnchor)
         ])
     }
 }
