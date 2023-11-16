@@ -1,6 +1,6 @@
 //
 //  AssetDiaryReaderTests.swift
-//  DiaryStorageTests
+//  DiaryTests
 //
 //  Created by Erick on 2023/08/30.
 //

@@ -1,6 +1,6 @@
 //
 //  DateFormatManagerTests.swift
-//  DateFormatManagerTests
+//  DiaryTests
 //
 //  Created by Erick on 2023/08/30.
 //
