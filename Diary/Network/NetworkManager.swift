@@ -9,12 +9,12 @@ import Foundation
 
 final class NetworkManager: NetworkManageable {
     
-    // MARK: - Private Property
-    private let session: URLSession
-    
+    // MARK: - Property
+    var urlSession: URLSessionProtocol
+
     // MARK: - Initializer
-    init(session: URLSession = .shared) {
-        self.session = session
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
     }
     
     // MARK: - NetworkManageable Method
@@ -22,7 +22,7 @@ final class NetworkManager: NetworkManageable {
         do {
             let request = try endpoint.urlRequest()
             
-            session.dataTask(with: request) { [weak self] data, response, error in
+            urlSession.dataTask(with: request) { [weak self] data, response, error in
                 self?.checkError(with: data, response, error) { result in
                     guard let self = self else {
                         return
@@ -42,7 +42,7 @@ final class NetworkManager: NetworkManageable {
     }
     
     func request(with url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        session.dataTask(with: url) { [weak self] data, response, error in
+        urlSession.dataTask(with: url) { [weak self] data, response, error in
             self?.checkError(with: data, response, error, completion: { result in
                 completion(result)
             })
