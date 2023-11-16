@@ -57,8 +57,6 @@ final class DiaryTableViewCell: UITableViewCell {
     private let weatherImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
-        imageView.setContentHuggingPriority(.required, for: .horizontal)
         
         return imageView
     }()
