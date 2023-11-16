@@ -136,6 +136,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451218F92B060EAF0085BB9A /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				45DEA7642A9D929E00D8F686 /* DiaryTests.swift */,
+				451218F32B05FCB00085BB9A /* WeatherResponseTests.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		451218FA2B060EC50085BB9A /* DiaryReadableAndManageable */ = {
+			isa = PBXGroup;
+			children = (
+				455170D22A9EDA85002A043C /* AssetDiaryReaderTests.swift */,
+				45DEDCBA2AAACDAB00F55804 /* CoreDataDiaryManagerTests.swift */,
+			);
+			path = DiaryReadableAndManageable;
+			sourceTree = "<group>";
+		};
+		451218FB2B060F250085BB9A /* LocaleDateFormatterProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				455170DF2A9EDBF4002A043C /* DateFormatManagerTests.swift */,
+			);
+			path = LocaleDateFormatterProtocol;
+			sourceTree = "<group>";
+		};
+		451218FC2B060F380085BB9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				451218FD2B060F400085BB9A /* EndPoint */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		451218FD2B060F400085BB9A /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				451218F52B05FF0A0085BB9A /* CurrentWeatherEndPointTests.swift */,
+				451218F72B0605150085BB9A /* WeatherIconEndPointTests.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
 		454809832AF8A7740032E18B /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,13 +328,10 @@
 		45DEA7632A9D929E00D8F686 /* DiaryTests */ = {
 			isa = PBXGroup;
 			children = (
-				45DEA7642A9D929E00D8F686 /* DiaryTests.swift */,
-				451218F32B05FCB00085BB9A /* WeatherResponseTests.swift */,
-				455170D22A9EDA85002A043C /* AssetDiaryReaderTests.swift */,
-				45DEDCBA2AAACDAB00F55804 /* CoreDataDiaryManagerTests.swift */,
-				455170DF2A9EDBF4002A043C /* DateFormatManagerTests.swift */,
-				451218F52B05FF0A0085BB9A /* CurrentWeatherEndPointTests.swift */,
-				451218F72B0605150085BB9A /* WeatherIconEndPointTests.swift */,
+				451218F92B060EAF0085BB9A /* DTO */,
+				451218FA2B060EC50085BB9A /* DiaryReadableAndManageable */,
+				451218FB2B060F250085BB9A /* LocaleDateFormatterProtocol */,
+				451218FC2B060F380085BB9A /* Network */,
 			);
 			path = DiaryTests;
 			sourceTree = "<group>";
