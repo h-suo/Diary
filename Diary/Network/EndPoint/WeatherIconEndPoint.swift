@@ -16,7 +16,7 @@ struct WeatherIconEndPoint: NetworkConfigurable {
     var baseURL: String
     var path: String
     var method: HttpMethod
-    var queryParameters: [String: String]?
+    var queryParameters: [URLQueryItem]?
     
     // MARK: - Initializer
     init(baseURL: String = "https://openweathermap.org",

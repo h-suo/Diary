@@ -20,7 +20,7 @@ protocol NetworkConfigurable {
     var baseURL: String { get }
     var path: String { get }
     var method: HttpMethod { get }
-    var queryParameters: [String: String]? { get }
+    var queryParameters: [URLQueryItem]? { get }
 }
 
 extension NetworkConfigurable {
@@ -36,17 +36,16 @@ extension NetworkConfigurable {
     func url() throws -> URL {
         let fullPath = String(format: NameSpace.fullPathFormat, baseURL, path)
         
-        guard var urlComponents = URLComponents(string: fullPath) else {
+        guard var urlComponents = URLComponents(string: fullPath),
+              let url = URL(string: fullPath) else {
             throw NetworkError.invalidURL
         }
         
-        var queryItems = [URLQueryItem]()
-        
-        queryParameters?.forEach {
-            queryItems.append(URLQueryItem(name: $0.key, value: $0.value))
+        guard let queryParameters else {
+            return url
         }
         
-        urlComponents.queryItems = queryItems
+        urlComponents.queryItems = queryParameters
         
         guard let url = urlComponents.url else {
             throw NetworkError.invalidComponents

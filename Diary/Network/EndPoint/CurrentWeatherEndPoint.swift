@@ -16,7 +16,7 @@ struct CurrentWeatherEndPoint: NetworkConfigurable {
     var baseURL: String
     var path: String
     var method: HttpMethod
-    var queryParameters: [String: String]?
+    var queryParameters: [URLQueryItem]?
     
     // MARK: - Initializer
     init?(baseURL: String = "https://api.openweathermap.org",
@@ -33,9 +33,9 @@ struct CurrentWeatherEndPoint: NetworkConfigurable {
         self.path = path
         self.method = method
         self.queryParameters = [
-            "lat": lat,
-            "lon": lon,
-            "appid": apikey
+            URLQueryItem(name: "lat", value: lat),
+            URLQueryItem(name: "lon", value: lon),
+            URLQueryItem(name: "appid", value: apikey)
         ]
     }
 }
