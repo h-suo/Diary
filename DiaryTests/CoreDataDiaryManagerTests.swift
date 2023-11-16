@@ -10,7 +10,9 @@ import CoreData
 @testable import Diary
 
 final class CoreDataDiaryManagerTests: XCTestCase {
-    private lazy var persistentContainer: NSPersistentContainer = {
+    
+    // MARK: - Setup Test
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DiaryData")
         
         let storeDescription = NSPersistentStoreDescription()
@@ -36,60 +38,52 @@ final class CoreDataDiaryManagerTests: XCTestCase {
         sut = nil
     }
 
-    func test_CoreDataDiaryManager의_DiaryEntrys를_사용하면_DiaryEntry배열을_반환합니다() {
+    // MARK: - Test Case
+    func test_CoreDataDiaryManager의_createDiary로_일기를_생성하고_DiaryEntrys로_반환받을_수_있습니다() {
         do {
             // given
-            let expectation = DiaryEntry(title: "test", body: "Read Test")
-            try sut.storeDiary(expectation)
+            let expectation = "test title"
+            let expectation2 = "test body"
             // when
-            let result = try sut.diaryEntrys().first
+            try sut.createDiary(title: expectation, body: expectation2, weatherResponse: nil)
+            let diaryEntrys = try sut.diaryEntrys()
             // then
-            XCTAssertEqual(result, expectation)
+            let result = diaryEntrys.first
+            XCTAssertEqual(result?.title, expectation)
+            XCTAssertEqual(result?.body, expectation2)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-    
-    func test_storeDiary로_일기를_저장할_수_있습니다() {
+
+    func test_updateDiary로_저장된_일기를_수정할_수_있습니다() {
         do {
             // given
-            let expectation = DiaryEntry(title: "test", body: "store Test")
-            try sut.storeDiary(expectation)
+            try sut.createDiary(title: "test title", body: "test body", weatherResponse: nil)
+            let expectation = "update test"
             // when
-            let result = try sut.diaryEntrys().first
+            var diaryEntry = try sut.diaryEntrys().first!
+            diaryEntry.title = expectation
+            diaryEntry.body = expectation
+            try sut.updateDiary(diaryEntry)
             // then
-            XCTAssertEqual(result, expectation)
+            let result = try sut.diaryEntrys().first
+            XCTAssertEqual(result?.title, expectation)
+            XCTAssertEqual(result?.body, expectation)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-    
-    func test_storeDiary로_저장된_일기를_수정할_수_있습니다() {
-        do {
-            // given
-            var expectation = DiaryEntry(title: "test", body: "update test")
-            try sut.storeDiary(expectation)
-            
-            // when
-            expectation.body = "update test update test"
-            try sut.storeDiary(expectation)
-            let result = try sut.diaryEntrys().first
-            // then
-            XCTAssertEqual(result, expectation)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-    }
-    
+
     func test_deleteDiary로_원하는_일기를_삭제할_수_있습니다() {
         do {
             // given
-            let diaryEntry = DiaryEntry(title: "test", body: "delete test")
-            try sut.storeDiary(diaryEntry)
+            try sut.createDiary(title: "test title", body: "test body", weatherResponse: nil)
+            let diaryEntry = try sut.diaryEntrys().first!
             // when
             try sut.deleteDiary(diaryEntry)
-            let result = try sut.diaryEntrys().isEmpty
             // then
+            let result = try sut.diaryEntrys().isEmpty
             XCTAssertTrue(result)
         } catch {
             XCTFail(error.localizedDescription)

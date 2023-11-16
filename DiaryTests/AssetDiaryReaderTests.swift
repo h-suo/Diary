@@ -9,6 +9,8 @@ import XCTest
 @testable import Diary
 
 final class AssetDiaryReaderTests: XCTestCase {
+    
+    // MARK: - Setup Test
     var sut: AssetDiaryReader?
     
     override func setUpWithError() throws {
@@ -19,6 +21,7 @@ final class AssetDiaryReaderTests: XCTestCase {
         sut = nil
     }
 
+    // MARK: - Test Case
     func test_AssetDiaryReader의_DiaryEntrys를_사용하면_DiaryEntry배열을_반환합니다() {
         do {
             // when

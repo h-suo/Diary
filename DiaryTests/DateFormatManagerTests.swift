@@ -9,6 +9,8 @@ import XCTest
 @testable import Diary
 
 final class DateFormatManagerTests: XCTestCase {
+    
+    // MARK: - Test Case
     func test_DateFormatManager의_string_메서드에_UserDateFormatter와_1608651333를_입력하면_2020년_12월_23일이_반환됩니다() {
         // given
         let userDateFormatter = UserDateFormatter.shared
