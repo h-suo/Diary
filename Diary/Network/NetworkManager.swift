@@ -13,7 +13,7 @@ final class NetworkManager: NetworkManageable {
     var urlSession: URLSessionProtocol
 
     // MARK: - Initializer
-    init(urlSession: URLSession = .shared) {
+    init(urlSession: URLSessionProtocol = URLSession.shared) {
         self.urlSession = urlSession
     }
     
