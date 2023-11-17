@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import CoreData
 @testable import Diary
 
 final class WeatherIconEndPointTests: XCTestCase {
