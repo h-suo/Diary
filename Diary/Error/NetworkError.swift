@@ -35,3 +35,21 @@ enum NetworkError: LocalizedError {
         }
     }
 }
+
+extension NetworkError: Equatable {
+    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidURL, .invalidURL),
+            (.invalidComponents, .invalidComponents),
+            (.invalidResponse, .invalidResponse),
+            (.statusCodeOutOfRange, .statusCodeOutOfRange),
+            (.emptyData, .emptyData):
+            return true
+        case let (.dataTask(error1), .dataTask(error2)),
+            let (.urlRequest(error1), .urlRequest(error2)):
+            return error1.localizedDescription == error2.localizedDescription
+        default:
+            return false
+        }
+    }
+}
