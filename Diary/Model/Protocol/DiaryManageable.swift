@@ -6,7 +6,14 @@
 //
 
 protocol DiaryManageable {
-    func createDiary(title: String, body: String, weatherResponse: WeatherResponse?) throws
-    func updateDiary(_ diary: DiaryEntry) throws
-    func deleteDiary(_ diary: DiaryEntry) throws
+  
+  func createDiary(
+    title: String,
+    body: String,
+    weatherResponse: WeatherResponse?
+  ) throws
+  
+  func updateDiary(_ diary: DiaryEntry) throws
+  
+  func deleteDiary(_ diary: DiaryEntry) throws
 }

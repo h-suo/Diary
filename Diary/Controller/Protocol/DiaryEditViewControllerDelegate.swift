@@ -6,5 +6,9 @@
 //
 
 protocol DiaryEditViewControllerDelegate: AnyObject {
-    func diaryEditViewController(_ diaryViewController: DiaryEditViewController, updateDiary isSuccess: Bool)
+  
+  func diaryEditViewController(
+    _ diaryViewController: DiaryEditViewController,
+    updateDiary isSuccess: Bool
+  )
 }

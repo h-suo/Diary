@@ -8,11 +8,24 @@
 import UIKit
 
 protocol AppResignObservable {
-    func addObserveWillResignActive(observer: Any, selector: Selector)
+  
+  func addObserveWillResignActive(
+    observer: Any,
+    selector: Selector
+  )
 }
 
 extension AppResignObservable {
-    func addObserveWillResignActive(observer: Any, selector: Selector) {
-        NotificationCenter.default.addObserver(observer, selector: selector, name: UIApplication.didEnterBackgroundNotification, object: nil)
-    }
+  
+  func addObserveWillResignActive(
+    observer: Any,
+    selector: Selector
+  ) {
+    NotificationCenter.default.addObserver(
+      observer,
+      selector: selector,
+      name: UIApplication.didEnterBackgroundNotification,
+      object: nil
+    )
+  }
 }

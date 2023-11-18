@@ -6,5 +6,6 @@
 //
 
 protocol DiaryReadable {
-    func diaryEntrys() throws -> [DiaryEntry]
+  
+  func diaryEntrys() throws -> [DiaryEntry]
 }

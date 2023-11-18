@@ -6,18 +6,18 @@
 //
 
 struct WeatherResponse: Codable {
-    let coord: Coord
-    let weather: [Weather]
+  let coord: Coord
+  let weather: [Weather]
 }
 
 // MARK: - Coord
 struct Coord: Codable {
-    let lon: Double
-    let lat: Double
+  let lon: Double
+  let lat: Double
 }
 
 // MARK: - Weather
 struct Weather: Codable {
-    let main: String
-    let icon: String
+  let main: String
+  let icon: String
 }

@@ -427,7 +427,9 @@
 				45DEA7632A9D929E00D8F686 /* DiaryTests */,
 				C739AE22284DF28600741E8F /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		C739AE22284DF28600741E8F /* Products */ = {
 			isa = PBXGroup;

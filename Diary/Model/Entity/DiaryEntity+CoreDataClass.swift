@@ -6,8 +6,10 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(DiaryEntity)
-final class DiaryEntity: NSManagedObject {}
+final class DiaryEntity: NSManagedObject {
+  
+}

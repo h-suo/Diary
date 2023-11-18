@@ -8,8 +8,12 @@
 import Foundation
 
 extension Notification.Name {
-    
-    // MARK: - Static Property
-    static let coreDataUpdateSuccessNotification = Notification.Name("coreDataUpdateSuccessNotification")
-    static let coreDataUpdateFailNotification = Notification.Name("coreDataUpdateFailedNotification")
+  
+  // MARK: - Static Property
+  static let coreDataUpdateSuccessNotification = Notification.Name(
+    "coreDataUpdateSuccessNotification"
+  )
+  static let coreDataUpdateFailNotification = Notification.Name(
+    "coreDataUpdateFailedNotification"
+  )
 }
