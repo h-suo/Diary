@@ -9,27 +9,27 @@ import XCTest
 @testable import Diary
 
 final class AssetDiaryReaderTests: XCTestCase {
-    
-    // MARK: - Setup Test
-    var sut: AssetDiaryReader?
-    
-    override func setUpWithError() throws {
-        sut = AssetDiaryReader()
+  
+  // MARK: - Setup Test
+  var sut: AssetDiaryReader?
+  
+  override func setUpWithError() throws {
+    sut = AssetDiaryReader()
+  }
+  
+  override func tearDownWithError() throws {
+    sut = nil
+  }
+  
+  // MARK: - Test Case
+  func test_DiaryEntrys_method() {
+    do {
+      // when
+      let result = try sut?.diaryEntrys() is [DiaryEntry]
+      // then
+      XCTAssertTrue(result)
+    } catch {
+      XCTFail(error.localizedDescription)
     }
-
-    override func tearDownWithError() throws {
-        sut = nil
-    }
-
-    // MARK: - Test Case
-    func test_AssetDiaryReader의_DiaryEntrys를_사용하면_DiaryEntry배열을_반환합니다() {
-        do {
-            // when
-            let result = try sut?.diaryEntrys() is [DiaryEntry]
-            // then
-            XCTAssertTrue(result)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-    }
+  }
 }
