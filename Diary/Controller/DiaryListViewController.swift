@@ -13,7 +13,7 @@ final class DiaryListViewController: UIViewController {
   private let diaryReader: DiaryReadable
   private let diaryManager: DiaryManageable
   
-  private let networkManager: NetworkManager
+  private let networkManager: NetworkManageable
   
   private let loactionManager: CLLocationManager
   private var locationData: LocationData?
@@ -73,7 +73,7 @@ final class DiaryListViewController: UIViewController {
   init(
     diaryReader: DiaryReadable,
     diaryManager: DiaryManageable,
-    networkManager: NetworkManager
+    networkManager: NetworkManageable
   ) {
     self.diaryReader = diaryReader
     self.diaryManager = diaryManager

@@ -13,7 +13,7 @@ final class DiaryEditViewController: UIViewController, AppResignObservable {
   
   // MARK: - Private Property
   private let diaryManager: DiaryManageable
-  private let networkManager: NetworkManager
+  private let networkManager: NetworkManageable
   
   private var diaryEntry: DiaryEntry?
   
@@ -34,7 +34,7 @@ final class DiaryEditViewController: UIViewController, AppResignObservable {
   // MARK: - Initializer
   init(
     diaryManager: DiaryManageable,
-    networkManager: NetworkManager,
+    networkManager: NetworkManageable,
     diaryEntry: DiaryEntry?,
     locationData: LocationData?
   ) {
