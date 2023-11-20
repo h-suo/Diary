@@ -5,19 +5,19 @@
 //  Created by Erick on 2023/11/07.
 //
 
-struct WeatherResponse: Codable {
+struct WeatherResponse: Decodable {
   let coord: Coord
   let weather: [Weather]
 }
 
 // MARK: - Coord
-struct Coord: Codable {
+struct Coord: Decodable {
   let lon: Double
   let lat: Double
 }
 
 // MARK: - Weather
-struct Weather: Codable {
+struct Weather: Decodable {
   let main: String
   let icon: String
 }
