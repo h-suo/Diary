@@ -38,15 +38,15 @@
 > **핵심 개념 및 경험**
 > 
 > - **MVC**
->   - 프로젝트의 가독성을 높이기 위해 `MVC` 패턴을 이용한 프로젝트 파일을 분리
+>   - 프로젝트의 가독성을 높이기 위해 `MVC` 패턴을 이용한 프로젝트 파일 분리
 > - **Networking**
 >   - 일기를 쓰는 날에 날씨 정보를 가져오기 위해 `URLSession`을 이용한 네트워킹
 > - **CoreData**
->   - 일기의 데이터를 로컬에 저장하기 위해 `CoreData`를 이용한 저장 기능을 구현
+>   - 일기의 데이터를 로컬에 저장하기 위해 `CoreData`를 이용한 저장 기능 구현
 > - **Localizing**
 >   - 여러 국가의 사용자 접근성을 높이기 위해 다국어 처리 및 날짜 포맷 사용자화
 > - **UnitTest**
->   - `Model` 객체가 의도에 맞게 동작하는지 확인하기 위해 `Unit Test`를 구현
+>   - `Model` 객체가 의도에 맞게 동작하는지 확인하기 위해 `Unit Test` 구현
 >   <br>
 > - **UITableViewDiffableDataSource**
 >   - 애니메이션화된 데이터 변경과 데이터 변경에 따른 UI 업데이트를 위해 `DiffableDataSource` 사용
@@ -395,7 +395,7 @@ final class UserDateFormatter: LocaleDateFormatterProtocol {
 ### 5️⃣ Unit Test
 
 객체가 의도에 맞게 잘 동작하는지 알아보기 위해 `Unit Test`를 작성했습니다.
-그리고 테스트가 어떤 상황에서도 잘 동작하도록 작성했습니다.
+테스트가 어떤 상황에서도 잘 동작하도록 작성했습니다.
 
 **CoreData Test**
 
