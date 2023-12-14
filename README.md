@@ -38,25 +38,24 @@
 > **핵심 개념 및 경험**
 > 
 > - **MVC**
->   - `MVC` 패턴을 이용한 프로젝트 파일 분리
+>   - 프로젝트의 가독성을 높이기 위해 `MVC` 패턴을 이용한 프로젝트 파일을 분리
 > - **Networking**
->   - `urlSession`을 이용한 네트워킹
+>   - 일기를 쓰는 날에 날씨 정보를 가져오기 위해 `URLSession`을 이용한 네트워킹
 > - **CoreData**
->   - `CoreData`를 이용한 일기 데이터의 저장
+>   - 일기의 데이터를 로컬에 저장하기 위해 `CoreData`를 이용한 저장 기능을 구현
 > - **Localizing**
->   - `Localizable.strings` 파일을 이용한 다국어 처리
->   - `locale` 프로퍼티를 이용해 날짜를 사용자 지역에 맞게 출력
+>   - 여러 국가의 사용자 접근성을 높이기 위해 다국어 처리 및 날짜 포맷 사용자화
 > - **UnitTest**
->   - `UnitTest`로 `Model`객체가 잘 동작하는지 테스트
+>   - `Model` 객체가 의도에 맞게 동작하는지 확인하기 위해 `Unit Test`를 구현
 >   <br>
 > - **UITableViewDiffableDataSource**
->   - `DiffableDataSource`를 이용한 애니메이션화된 데이터 변경
+>   - 애니메이션화된 데이터 변경과 데이터 변경에 따른 UI 업데이트를 위해 `DiffableDataSource` 사용
 > - **keyboardWillShowNotification**
->   - `keyboardWillShow` 노티를 이용한 키보드가 나타났을 때 동작 설정
+>   - 키보드가 나타났을 때 동작 설정을 위해 `keyboardWillShowNotification` 사용
 > - **UISwipeActionsConfiguration**
->   - `SwipeActions`를 이용한 셀의 스와이프 동작 설정
+>   - 셀의 스와이프 동작 설정을 위해 `SwipeActions` 사용
 > - **UIActivityViewController**
->   - `ActivityViewController`를 이용한 일기 내용 공유
+>   - 일기 내용 공유를 위해 `ActivityViewController` 사용
 
 <br>
 
@@ -195,7 +194,7 @@ Diary
 ### 1️⃣ 파일 분리
 
 프로젝트의 가독성을 높이기 위해 파일 분리와 그룹화에 대해 고민을 했습니다.
-`MVC` 패턴을 사용하여 `Model`, `View`, `Controller`를 나누는 것을 시작으로 그 외에 객체와 파일을 역할 별로 나누어 그룹화하였습니다.
+`MVC` 패턴을 사용하여 `Model`, `View`, `Controller`를 나누는 것을 시작으로 그 외에 객체와 파일을 역할 별로 나누어 그룹화했습니다.
 
 > **Application**
 > : 앱의 생명주기를 관리하는 `AppDelegate`, `SceneDelegate`
@@ -292,7 +291,7 @@ final class DiaryListViewController: UIViewController {
 
 ### 3️⃣ Network Layer
 
-네트워킹을 하는데 필요한 객체를 `DTO`, `EndPoint`, `NetworkManager`로 나누어 추후 새로운 `API`로 통신이 필요할 경우 확장에 용이하도록 구현하였습니다.
+네트워킹을 하는데 필요한 객체를 `DTO`, `EndPoint`, `NetworkManager`로 나누어 추후 새로운 `API`로 통신이 필요할 경우 확장에 용이하도록 구현했습니다.
 
 **NetworkConfigurable**
 
@@ -395,7 +394,7 @@ final class UserDateFormatter: LocaleDateFormatterProtocol {
 
 ### 5️⃣ Unit Test
 
-객체가 의도에 맞게 잘 동작하는지 알아보기 위해 `Unit Test`를 하였습니다.
+객체가 의도에 맞게 잘 동작하는지 알아보기 위해 `Unit Test`를 작성했습니다.
 그리고 테스트가 어떤 상황에서도 잘 동작하도록 작성했습니다.
 
 **CoreData Test**
@@ -430,9 +429,9 @@ final class CoreDataDiaryManagerTests: XCTestCase {
 
 **Test Double**
 
-네트워크가 연결되어 있지 않은 상황에서도 `NetworkManager`를 테스트하기 위해 `Test Double` 객체를 만들어 테스트하였습니다.
+네트워크가 연결되어 있지 않은 상황에서도 `NetworkManager`를 테스트하기 위해 `Test Double` 객체를 만들어 테스트했습니다.
 
-`Dummy Response`와 `MockURLSession`을 만들어 테스트하고 싶은 응답을 넘겨주도록 설계하여 테스트를 진행하였습니다.
+`Dummy Response`와 `MockURLSession`을 만들어 테스트하고 싶은 응답을 넘겨주도록 설계하여 테스트를 진행했습니다.
 
 ```swift
 protocol Response {
