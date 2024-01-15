@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiaryRowView: View {
   
-  // MARK: - Contents Property
+  // MARK: - Data Property
   var diary: Diary
   
   // MARK: - Body View
