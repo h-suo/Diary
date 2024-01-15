@@ -13,6 +13,7 @@
 		451611E42B5504F9006E6EA0 /* DiaryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E32B5504F9006E6EA0 /* DiaryRowView.swift */; };
 		451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E52B550545006E6EA0 /* DiaryListView.swift */; };
 		451611E82B550C1D006E6EA0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E72B550C1D006E6EA0 /* Diary.swift */; };
+		451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611ED2B551823006E6EA0 /* DateFormatter+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		451611E32B5504F9006E6EA0 /* DiaryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRowView.swift; sourceTree = "<group>"; };
 		451611E52B550545006E6EA0 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
 		451611E72B550C1D006E6EA0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		451611ED2B551823006E6EA0 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		451611EA2B55105B006E6EA0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				451611ED2B551823006E6EA0 /* DateFormatter+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */,
 				451611D02B54FF41006E6EA0 /* DiaryApp.swift in Sources */,
 				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
+				451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
