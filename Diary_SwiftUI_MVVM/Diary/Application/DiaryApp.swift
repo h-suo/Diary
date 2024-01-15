@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct DiaryApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      DiaryListView(diarys: [])
     }
+  }
 }

@@ -11,6 +11,7 @@
 		451611D22B54FF41006E6EA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611D12B54FF41006E6EA0 /* ContentView.swift */; };
 		451611D42B54FF42006E6EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451611D32B54FF42006E6EA0 /* Assets.xcassets */; };
 		451611D72B54FF42006E6EA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451611D62B54FF42006E6EA0 /* Preview Assets.xcassets */; };
+		451611E82B550C1D006E6EA0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E72B550C1D006E6EA0 /* Diary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		451611D12B54FF41006E6EA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		451611D32B54FF42006E6EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		451611D62B54FF42006E6EA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		451611E72B550C1D006E6EA0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +40,9 @@
 				451611CE2B54FF41006E6EA0 /* Diary */,
 				451611CD2B54FF41006E6EA0 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		451611CD2B54FF41006E6EA0 /* Products */ = {
 			isa = PBXGroup;
@@ -51,8 +55,9 @@
 		451611CE2B54FF41006E6EA0 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				451611CF2B54FF41006E6EA0 /* DiaryApp.swift */,
 				451611D12B54FF41006E6EA0 /* ContentView.swift */,
+				451611DD2B5503E7006E6EA0 /* Application */,
+				451611E02B550408006E6EA0 /* Domain */,
 				451611D32B54FF42006E6EA0 /* Assets.xcassets */,
 				451611D52B54FF42006E6EA0 /* Preview Content */,
 			);
@@ -65,6 +70,22 @@
 				451611D62B54FF42006E6EA0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		451611DD2B5503E7006E6EA0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				451611CF2B54FF41006E6EA0 /* DiaryApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		451611E02B550408006E6EA0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				451611E72B550C1D006E6EA0 /* Diary.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +160,7 @@
 			files = (
 				451611D22B54FF41006E6EA0 /* ContentView.swift in Sources */,
 				451611D02B54FF41006E6EA0 /* DiaryApp.swift in Sources */,
+				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
