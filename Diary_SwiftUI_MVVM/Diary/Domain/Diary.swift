@@ -13,7 +13,7 @@ struct Diary: Identifiable {
   var contents: String
   var date: Date
   var dateString: String {
-    date.description
+    DateFormatter.currentLong.string(from: date)
   }
   
   // MARK: - Initializer
