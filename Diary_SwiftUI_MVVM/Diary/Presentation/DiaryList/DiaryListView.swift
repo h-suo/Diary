@@ -17,7 +17,7 @@ struct DiaryListView: View {
     NavigationStack {
       List(diarys) { diary in
         NavigationLink {
-          Text("Diary Detail")
+          DiaryEditView(diary: diary)
         } label: {
           DiaryRowView(diary: diary)
         }

@@ -14,6 +14,7 @@
 		451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E52B550545006E6EA0 /* DiaryListView.swift */; };
 		451611E82B550C1D006E6EA0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E72B550C1D006E6EA0 /* Diary.swift */; };
 		451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611ED2B551823006E6EA0 /* DateFormatter+.swift */; };
+		451611F02B551C0F006E6EA0 /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611EF2B551C0F006E6EA0 /* DiaryEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		451611E52B550545006E6EA0 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
 		451611E72B550C1D006E6EA0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		451611ED2B551823006E6EA0 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		451611EF2B551C0F006E6EA0 /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		451611E22B550488006E6EA0 /* DiaryEdit */ = {
 			isa = PBXGroup;
 			children = (
+				451611EF2B551C0F006E6EA0 /* DiaryEditView.swift */,
 			);
 			path = DiaryEdit;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				451611E42B5504F9006E6EA0 /* DiaryRowView.swift in Sources */,
 				451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */,
+				451611F02B551C0F006E6EA0 /* DiaryEditView.swift in Sources */,
 				451611D02B54FF41006E6EA0 /* DiaryApp.swift in Sources */,
 				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
 				451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */,
