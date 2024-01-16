@@ -9,10 +9,8 @@ import SwiftUI
 
 struct DiaryListView: View {
   
-  // MARK: - Data Property
   var diarys: [Diary]
   
-  // MARK: - Body View
   var body: some View {
     NavigationStack {
       List(diarys) { diary in
@@ -29,7 +27,6 @@ struct DiaryListView: View {
   }
 }
 
-// MARK: - Previews
 struct DiaryListView_Previews: PreviewProvider {
   static var previews: some View {
     DiaryListView(diarys: [

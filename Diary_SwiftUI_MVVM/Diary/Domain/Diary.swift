@@ -16,7 +16,6 @@ struct Diary: Identifiable {
     DateFormatter.currentLong.string(from: date)
   }
   
-  // MARK: - Initializer
   init(
     id: UUID = UUID(),
     title: String,

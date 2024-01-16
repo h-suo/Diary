@@ -9,10 +9,8 @@ import SwiftUI
 
 struct DiaryEditView: View {
   
-  // MARK: - Data Property
   @State var diary: Diary
   
-  // MARK: - Body View
   var body: some View {
     GeometryReader { geometry in
       ScrollView {
@@ -27,7 +25,6 @@ struct DiaryEditView: View {
     .navigationTitle(diary.dateString)
   }
   
-  // MARK: - Component View
   private var titleTextField: some View {
     TextField("Enter a title.", text: $diary.title)
       .font(.title2)

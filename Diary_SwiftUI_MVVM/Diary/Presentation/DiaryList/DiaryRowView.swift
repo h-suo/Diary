@@ -9,10 +9,8 @@ import SwiftUI
 
 struct DiaryRowView: View {
   
-  // MARK: - Data Property
   var diary: Diary
   
-  // MARK: - Body View
   var body: some View {
     VStack(alignment: .leading) {
       titleText
@@ -25,7 +23,6 @@ struct DiaryRowView: View {
     .lineLimit(1)
   }
   
-  // MARK: - Component View
   private var titleText: some View {
     Text(diary.title)
       .font(.title2)
@@ -43,7 +40,6 @@ struct DiaryRowView: View {
   }
 }
 
-// MARK: - Previews
 struct DiaryRowView_Previews: PreviewProvider {
   static var previews: some View {
     DiaryRowView(diary: Diary(title: "Title",
