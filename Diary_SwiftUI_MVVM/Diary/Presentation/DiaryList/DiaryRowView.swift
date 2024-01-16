@@ -15,19 +15,31 @@ struct DiaryRowView: View {
   // MARK: - Body View
   var body: some View {
     VStack(alignment: .leading) {
-      Text(diary.title)
-        .font(.title2)
+      titleText
       
       HStack {
-        Text(diary.dateString)
-          .font(.title3)
-          .foregroundColor(.gray)
-          .layoutPriority(1)
-        
-        Text(diary.contents)
+        dateText
+        contentsText
       }
     }
     .lineLimit(1)
+  }
+  
+  // MARK: - Component View
+  private var titleText: some View {
+    Text(diary.title)
+      .font(.title2)
+  }
+  
+  private var dateText: some View {
+    Text(diary.dateString)
+      .font(.title3)
+      .foregroundColor(.gray)
+      .layoutPriority(1)
+  }
+  
+  private var contentsText: some View {
+    Text(diary.contents)
   }
 }
 

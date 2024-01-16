@@ -12,24 +12,33 @@ struct DiaryEditView: View {
   // MARK: - Data Property
   @State var diary: Diary
   
-  // MARK: - Body
+  // MARK: - Body View
   var body: some View {
     GeometryReader { geometry in
       ScrollView {
         VStack(alignment: .leading) {
-          TextField("Enter a title.", text: $diary.title)
-            .font(.title2)
-          
+          titleTextField
           Divider()
-          
-          TextEditor(text: $diary.contents)
-            .scrollDisabled(true)
-            .frame(height: geometry.size.height * 0.9)
+          contentsTextEditor(geometry)
         }
       }
     }
     .padding()
     .navigationTitle(diary.dateString)
+  }
+  
+  // MARK: - Component View
+  private var titleTextField: some View {
+    TextField("Enter a title.", text: $diary.title)
+      .font(.title2)
+  }
+  
+  private func contentsTextEditor(
+    _ geometry: GeometryProxy
+  ) -> some View {
+    TextEditor(text: $diary.contents)
+      .scrollDisabled(true)
+      .frame(height: geometry.size.height * 0.9)
   }
 }
 
