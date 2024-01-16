@@ -42,7 +42,6 @@ struct DiaryRowView: View {
 
 struct DiaryRowView_Previews: PreviewProvider {
   static var previews: some View {
-    DiaryRowView(diary: Diary(title: "Title",
-                              contents: "Contents"))
+    DiaryRowView(diary: Diary.makeDummyDiary())
   }
 }

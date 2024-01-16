@@ -41,7 +41,6 @@ struct DiaryEditView: View {
 
 struct DiaryEditView_Previews: PreviewProvider {
   static var previews: some View {
-    DiaryEditView(diary: Diary(title: "Title",
-                               contents: "Contents"))
+    DiaryEditView(diary: Diary.makeDummyDiary())
   }
 }

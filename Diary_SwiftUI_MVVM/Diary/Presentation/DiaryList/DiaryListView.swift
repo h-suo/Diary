@@ -29,22 +29,6 @@ struct DiaryListView: View {
 
 struct DiaryListView_Previews: PreviewProvider {
   static var previews: some View {
-    DiaryListView(diarys: [
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents"),
-      Diary(title: "Title", contents: "Contents")
-    ])
+    DiaryListView(diarys: Diary.makeDummyDiarys())
   }
 }

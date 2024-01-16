@@ -28,3 +28,27 @@ struct Diary: Identifiable {
     self.date = date
   }
 }
+
+extension Diary {
+  static func makeDummyDiary() -> Diary {
+    return Diary(title: "Title", contents: "Contents")
+  }
+  
+  static func makeDummyDiarys() -> [Diary] {
+    return [Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents"),
+            Diary(title: "Title", contents: "Contents")]
+  }
+}
