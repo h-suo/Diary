@@ -17,6 +17,10 @@
 		451611F02B551C0F006E6EA0 /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611EF2B551C0F006E6EA0 /* DiaryEditView.swift */; };
 		45C8A9C12B56668900BB3C62 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C02B56668900BB3C62 /* DiaryRepository.swift */; };
 		45C8A9C32B5666E000BB3C62 /* DiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C22B5666E000BB3C62 /* DiaryUseCase.swift */; };
+		45C8A9C72B59088C00BB3C62 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */; };
+		45C8A9CA2B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */; };
+		45C8A9CB2B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */; };
+		45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		451611EF2B551C0F006E6EA0 /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
 		45C8A9C02B56668900BB3C62 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
 		45C8A9C22B5666E000BB3C62 /* DiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUseCase.swift; sourceTree = "<group>"; };
+		45C8A9C62B59088C00BB3C62 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
+		45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCoreDataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,7 @@
 				451611E02B550408006E6EA0 /* Domain */,
 				451611DE2B5503F3006E6EA0 /* Presentation */,
 				451611DF2B550402006E6EA0 /* Data */,
+				45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */,
 				451611E92B55104D006E6EA0 /* Util */,
 				451611D32B54FF42006E6EA0 /* Assets.xcassets */,
 				451611D52B54FF42006E6EA0 /* Preview Content */,
@@ -104,6 +113,8 @@
 		451611DF2B550402006E6EA0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				45C8A9CD2B5917AC00BB3C62 /* DTO */,
+				45C8A9CE2B5917CC00BB3C62 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -173,6 +184,39 @@
 				451611E72B550C1D006E6EA0 /* Diary.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		45C8A9CD2B5917AC00BB3C62 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9D02B59183B00BB3C62 /* CoreData */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		45C8A9CE2B5917CC00BB3C62 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9CF2B59182900BB3C62 /* CoreData */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		45C8A9CF2B59182900BB3C62 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		45C8A9D02B59183B00BB3C62 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */,
+				45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,14 +289,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C8A9C72B59088C00BB3C62 /* Diary.xcdatamodeld in Sources */,
 				451611E42B5504F9006E6EA0 /* DiaryRowView.swift in Sources */,
 				451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */,
 				451611F02B551C0F006E6EA0 /* DiaryEditView.swift in Sources */,
+				45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */,
 				451611D02B54FF41006E6EA0 /* DiaryApp.swift in Sources */,
 				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
 				451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */,
 				45C8A9C12B56668900BB3C62 /* DiaryRepository.swift in Sources */,
+				45C8A9CA2B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift in Sources */,
 				45C8A9C32B5666E000BB3C62 /* DiaryUseCase.swift in Sources */,
+				45C8A9CB2B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +499,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45C8A9C62B59088C00BB3C62 /* Diary.xcdatamodel */,
+			);
+			currentVersion = 45C8A9C62B59088C00BB3C62 /* Diary.xcdatamodel */;
+			path = Diary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 451611C42B54FF41006E6EA0 /* Project object */;
 }
