@@ -13,19 +13,19 @@ struct DiaryUseCase: DiaryRepository {
     self.repository = repository
   }
 
-  func diarys() -> [Diary] {
-    repository.diarys()
+  func diarys() throws -> [Diary] {
+    try repository.diarys()
   }
   
-  func create(_ diary: Diary) -> Diary? {
-    repository.create(diary)
+  func create(_ diary: Diary) throws -> Diary {
+    try repository.create(diary)
   }
   
-  func update(_ diary: Diary) -> Diary? {
-    repository.update(diary)
+  func update(_ diary: Diary) throws -> Diary {
+    try repository.update(diary)
   }
   
-  func delete(_ diary: Diary) -> Diary? {
-    repository.delete(diary)
+  func delete(_ diary: Diary) throws -> Diary {
+    try repository.delete(diary)
   }
 }

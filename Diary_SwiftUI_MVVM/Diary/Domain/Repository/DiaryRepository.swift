@@ -6,8 +6,8 @@
 //
 
 protocol DiaryRepository {
-  func diarys() -> [Diary]
-  func create(_ diary: Diary) -> Diary?
-  func update(_ diary: Diary) -> Diary?
-  func delete(_ diary: Diary) -> Diary?
+  func diarys() throws -> [Diary]
+  func create(_ diary: Diary) throws -> Diary
+  func update(_ diary: Diary) throws -> Diary
+  func delete(_ diary: Diary) throws -> Diary
 }

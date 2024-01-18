@@ -18,11 +18,18 @@ struct DiaryCoreDataRepository {
   init(persistentContainer: NSPersistentContainer) {
     self.persistentContainer = persistentContainer
   }
+  
+  private func fetchDiaryEntity(forId id: UUID) throws -> DiaryDTO? {
+    let request = DiaryDTO.fetchRequest()
+    request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+    
+    return try context.fetch(request).first
+  }
 }
 
 extension DiaryCoreDataRepository: DiaryRepository {
   
-  func diarys() -> [Diary] {
+  func diarys() throws -> [Diary] {
     let request = DiaryDTO.fetchRequest()
     
     do {
@@ -36,12 +43,11 @@ extension DiaryCoreDataRepository: DiaryRepository {
         )
       }
     } catch {
-      print(error.localizedDescription)
-      return []
+      throw CoreDataRepositoryError.fetchError
     }
   }
   
-  func create(_ diary: Diary) -> Diary? {
+  func create(_ diary: Diary) throws -> Diary {
     let newDiaryEntity = DiaryDTO(context: context)
     newDiaryEntity.id = diary.id
     newDiaryEntity.title = diary.title
@@ -52,54 +58,36 @@ extension DiaryCoreDataRepository: DiaryRepository {
       try context.save()
       return diary
     } catch {
-      print(error.localizedDescription)
-      return nil
+      throw CoreDataRepositoryError.creationError
     }
   }
   
-  func update(_ diary: Diary) -> Diary? {
-    let request = DiaryDTO.fetchRequest()
-    request.predicate = NSPredicate(
-      format: "id == %@",
-      diary.id as CVarArg
-    )
+  func update(_ diary: Diary) throws -> Diary {
+    guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
+    else { throw CoreDataRepositoryError.fetchError }
+    
+    diaryEntity.title = diary.title
+    diaryEntity.contents = diary.contents
     
     do {
-      guard let diaryEntity = try context.fetch(request).first
-      else {
-        print("Can't find target diary")
-        return nil
-      }
-      
-      diaryEntity.title = diary.title
-      diaryEntity.contents = diary.contents
-      
       try context.save()
       return diary
     } catch {
-      print(error.localizedDescription)
-      return nil
+      throw CoreDataRepositoryError.updateError
     }
   }
   
-  func delete(_ diary: Diary) -> Diary? {
-    let request = DiaryDTO.fetchRequest()
-    request.predicate = NSPredicate(format: "id == %@", diary.id as CVarArg)
+  func delete(_ diary: Diary) throws -> Diary {
+    guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
+    else { throw CoreDataRepositoryError.fetchError }
+    
+    context.delete(diaryEntity)
     
     do {
-      guard let diaryEntity = try context.fetch(request).first
-      else {
-        print("Can't find target diary")
-        return nil
-      }
-      
-      context.delete(diaryEntity)
-      
       try context.save()
       return diary
     } catch {
-      print(error.localizedDescription)
-      return nil
+      throw CoreDataRepositoryError.deletionError
     }
   }
 }
