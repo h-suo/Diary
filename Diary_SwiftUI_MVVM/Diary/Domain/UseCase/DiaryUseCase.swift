@@ -8,6 +8,10 @@
 struct DiaryUseCase: DiaryRepository {
   
   private var repo: DiaryRepository
+  
+  init(repo: DiaryRepository) {
+    self.repo = repo
+  }
 
   func diarys() -> [Diary] {
     repo.diarys()
