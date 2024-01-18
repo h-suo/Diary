@@ -7,25 +7,25 @@
 
 struct DiaryUseCase: DiaryRepository {
   
-  private var repo: DiaryRepository
+  private var repository: DiaryRepository
   
-  init(repo: DiaryRepository) {
-    self.repo = repo
+  init(repository: DiaryRepository) {
+    self.repository = repository
   }
 
   func diarys() -> [Diary] {
-    repo.diarys()
+    repository.diarys()
   }
   
   func create(_ diary: Diary) -> Diary? {
-    repo.create(diary)
+    repository.create(diary)
   }
   
   func update(_ diary: Diary) -> Diary? {
-    repo.update(diary)
+    repository.update(diary)
   }
   
   func delete(_ diary: Diary) -> Diary? {
-    repo.delete(diary)
+    repository.delete(diary)
   }
 }

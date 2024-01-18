@@ -9,17 +9,16 @@
 import Foundation
 import CoreData
 
-
 extension DiaryDTO {
   
-  @nonobjc public class func fetchRequest() -> NSFetchRequest<DiaryDTO> {
+  @nonobjc final class func fetchRequest() -> NSFetchRequest<DiaryDTO> {
     return NSFetchRequest<DiaryDTO>(entityName: "DiaryDTO")
   }
   
-  @NSManaged public var id: UUID
-  @NSManaged public var title: String
-  @NSManaged public var contents: String
-  @NSManaged public var date: Date
+  @NSManaged var id: UUID
+  @NSManaged var title: String
+  @NSManaged var contents: String
+  @NSManaged var date: Date
 }
 
 extension DiaryDTO : Identifiable {

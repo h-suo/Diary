@@ -8,6 +8,7 @@
 import Foundation
 
 struct Diary: Identifiable {
+  
   var id: UUID
   var title: String
   var contents: String

@@ -59,10 +59,14 @@ extension DiaryCoreDataRepository: DiaryRepository {
   
   func update(_ diary: Diary) -> Diary? {
     let request = DiaryDTO.fetchRequest()
-    request.predicate = NSPredicate(format: "id == %@", diary.id as CVarArg)
+    request.predicate = NSPredicate(
+      format: "id == %@",
+      diary.id as CVarArg
+    )
     
     do {
-      guard let diaryEntity = try context.fetch(request).first else {
+      guard let diaryEntity = try context.fetch(request).first
+      else {
         print("Can't find target diary")
         return nil
       }
@@ -83,7 +87,8 @@ extension DiaryCoreDataRepository: DiaryRepository {
     request.predicate = NSPredicate(format: "id == %@", diary.id as CVarArg)
     
     do {
-      guard let diaryEntity = try context.fetch(request).first else {
+      guard let diaryEntity = try context.fetch(request).first
+      else {
         print("Can't find target diary")
         return nil
       }
