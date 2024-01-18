@@ -79,9 +79,8 @@
 				451611E02B550408006E6EA0 /* Domain */,
 				451611DE2B5503F3006E6EA0 /* Presentation */,
 				451611DF2B550402006E6EA0 /* Data */,
-				45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */,
 				451611E92B55104D006E6EA0 /* Util */,
-				451611D32B54FF42006E6EA0 /* Assets.xcassets */,
+				45C8A9F42B5937F300BB3C62 /* Resource */,
 				451611D52B54FF42006E6EA0 /* Preview Content */,
 			);
 			path = Diary;
@@ -220,6 +219,15 @@
 				45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		45C8A9F42B5937F300BB3C62 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */,
+				451611D32B54FF42006E6EA0 /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
