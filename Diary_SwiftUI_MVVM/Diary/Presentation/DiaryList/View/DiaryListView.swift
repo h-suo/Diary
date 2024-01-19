@@ -27,6 +27,13 @@ struct DiaryListView: View {
       .listStyle(.plain)
       .navigationTitle("Diary")
       .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem {
+          Button(action: viewModel.addDiary) {
+            Label("Add Diary", systemImage: "plus")
+          }
+        }
+      }
       .onAppear {
         viewModel.fetchDiarys()
       }

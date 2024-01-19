@@ -19,7 +19,16 @@ final class DiaryListViewModel: ObservableObject {
   
   func fetchDiarys() {
     do {
-      self.diarys = try useCase.diarys()
+      self.diarys = try useCase.diarys().sorted { $0.date > $1.date }
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+  
+  func addDiary() {
+    do {
+      try useCase.create(Diary(title: "", contents: ""))
+      fetchDiarys()
     } catch {
       print(error.localizedDescription)
     }
