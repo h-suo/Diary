@@ -18,8 +18,7 @@
 		45C8A9C12B56668900BB3C62 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C02B56668900BB3C62 /* DiaryRepository.swift */; };
 		45C8A9C32B5666E000BB3C62 /* DiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C22B5666E000BB3C62 /* DiaryUseCase.swift */; };
 		45C8A9C72B59088C00BB3C62 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */; };
-		45C8A9CA2B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */; };
-		45C8A9CB2B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */; };
+		45C8A9CA2B59092F00BB3C62 /* DiaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C82B59092F00BB3C62 /* DiaryDTO.swift */; };
 		45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */; };
 		45C8A9F32B592CEA00BB3C62 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */; };
 		45C8A9F72B593C5200BB3C62 /* CoreDataRepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9F62B593C5200BB3C62 /* CoreDataRepositoryError.swift */; };
@@ -38,8 +37,7 @@
 		45C8A9C02B56668900BB3C62 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
 		45C8A9C22B5666E000BB3C62 /* DiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUseCase.swift; sourceTree = "<group>"; };
 		45C8A9C62B59088C00BB3C62 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
-		45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		45C8A9C82B59092F00BB3C62 /* DiaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDTO.swift; sourceTree = "<group>"; };
 		45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCoreDataRepository.swift; sourceTree = "<group>"; };
 		45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		45C8A9F62B593C5200BB3C62 /* CoreDataRepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepositoryError.swift; sourceTree = "<group>"; };
@@ -194,7 +192,7 @@
 		45C8A9CD2B5917AC00BB3C62 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				45C8A9D02B59183B00BB3C62 /* CoreData */,
+				45C8A9C82B59092F00BB3C62 /* DiaryDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -202,26 +200,9 @@
 		45C8A9CE2B5917CC00BB3C62 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				45C8A9CF2B59182900BB3C62 /* CoreData */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		45C8A9CF2B59182900BB3C62 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
 				45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */,
 			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		45C8A9D02B59183B00BB3C62 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				45C8A9C82B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift */,
-				45C8A9C92B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift */,
-			);
-			path = CoreData;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		45C8A9F42B5937F300BB3C62 /* Resource */ = {
@@ -321,10 +302,9 @@
 				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
 				451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */,
 				45C8A9C12B56668900BB3C62 /* DiaryRepository.swift in Sources */,
-				45C8A9CA2B59092F00BB3C62 /* DiaryEntity+CoreDataClass.swift in Sources */,
+				45C8A9CA2B59092F00BB3C62 /* DiaryDTO.swift in Sources */,
 				45C8A9F32B592CEA00BB3C62 /* PersistenceController.swift in Sources */,
 				45C8A9C32B5666E000BB3C62 /* DiaryUseCase.swift in Sources */,
-				45C8A9CB2B59092F00BB3C62 /* DiaryEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
