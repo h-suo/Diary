@@ -2,7 +2,7 @@
 //  DiaryEditView.swift
 //  Diary
 //
-//  Created by 표현수 on 2024/01/15.
+//  Created by Erick on 2024/01/15.
 //
 
 import SwiftUI

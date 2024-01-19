@@ -9,7 +9,11 @@ import SwiftUI
 
 struct DiaryRowView: View {
   
-  var diary: Diary
+  private var diary: Diary
+  
+  init(diary: Diary) {
+    self.diary = diary
+  }
   
   var body: some View {
     VStack(alignment: .leading) {
