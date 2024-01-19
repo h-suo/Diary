@@ -47,7 +47,7 @@ extension DiaryCoreDataRepository: DiaryRepository {
     }
   }
   
-  func create(_ diary: Diary) throws -> Diary {
+  func create(_ diary: Diary) throws {
     let newDiaryEntity = DiaryDTO(context: context)
     newDiaryEntity.id = diary.id
     newDiaryEntity.title = diary.title
@@ -56,13 +56,12 @@ extension DiaryCoreDataRepository: DiaryRepository {
     
     do {
       try context.save()
-      return diary
     } catch {
       throw CoreDataRepositoryError.creationError
     }
   }
   
-  func update(_ diary: Diary) throws -> Diary {
+  func update(_ diary: Diary) throws {
     guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
     else { throw CoreDataRepositoryError.fetchError }
     
@@ -71,13 +70,12 @@ extension DiaryCoreDataRepository: DiaryRepository {
     
     do {
       try context.save()
-      return diary
     } catch {
       throw CoreDataRepositoryError.updateError
     }
   }
   
-  func delete(_ diary: Diary) throws -> Diary {
+  func delete(_ diary: Diary) throws {
     guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
     else { throw CoreDataRepositoryError.fetchError }
     
@@ -85,7 +83,6 @@ extension DiaryCoreDataRepository: DiaryRepository {
     
     do {
       try context.save()
-      return diary
     } catch {
       throw CoreDataRepositoryError.deletionError
     }

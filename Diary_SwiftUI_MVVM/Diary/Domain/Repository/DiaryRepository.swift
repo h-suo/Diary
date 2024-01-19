@@ -7,7 +7,7 @@
 
 protocol DiaryRepository {
   func diarys() throws -> [Diary]
-  func create(_ diary: Diary) throws -> Diary
-  func update(_ diary: Diary) throws -> Diary
-  func delete(_ diary: Diary) throws -> Diary
+  func create(_ diary: Diary) throws
+  func update(_ diary: Diary) throws
+  func delete(_ diary: Diary) throws
 }
