@@ -9,17 +9,11 @@ import SwiftUI
 
 @main
 struct DiaryApp: App {
-  
-  @State var useCase = DiaryUseCase(
-    repository: DiaryCoreDataRepository(
-      persistentContainer: PersistenceController.preview.container
-    )
-  )
-  
+    
   var body: some Scene {
     WindowGroup {
       DiaryListView()
-        .environmentObject(DiaryListViewModel(useCase: useCase))
+        .environmentObject(DIContainer.shared.diaryListViewModel())
     }
   }
 }
