@@ -28,16 +28,6 @@ final class DiaryListViewModel: ObservableObject {
     }
   }
   
-  func addDiary() {
-    do {
-      try useCase.create(Diary(title: "", contents: ""))
-      fetchDiarys()
-    } catch {
-      errorMessage = error.localizedDescription
-      isError = true
-    }
-  }
-  
   func deleteDiary(_ offsets: IndexSet) {
     do {
       try offsets

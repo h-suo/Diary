@@ -17,7 +17,12 @@ struct DiaryListView: View {
       List {
         ForEach(viewModel.diarys) { diary in
           NavigationLink {
-            DiaryEditView(diary: diary)
+            DiaryDetailView()
+              .environmentObject(
+                DIContainer
+                  .shared
+                  .diaryDetailViewModel(diary: diary)
+              )
           } label: {
             DiaryRowView(diary: diary)
           }
@@ -29,8 +34,15 @@ struct DiaryListView: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem {
-          Button(action: viewModel.addDiary) {
-            Label("Add Diary", systemImage: "plus")
+          NavigationLink {
+            DiaryDetailView()
+              .environmentObject(
+                DIContainer
+                  .shared
+                  .diaryDetailViewModel(diary: nil)
+              )
+          } label: {
+            Image(systemName: "plus")
           }
         }
       }
