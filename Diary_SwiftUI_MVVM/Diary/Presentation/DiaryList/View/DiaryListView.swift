@@ -38,6 +38,9 @@ struct DiaryListView: View {
         viewModel.fetchDiarys()
       }
     }
+    .alert(isPresented: $viewModel.isError) {
+      Alert(title: Text(viewModel.errorMessage))
+    }
   }
 }
 

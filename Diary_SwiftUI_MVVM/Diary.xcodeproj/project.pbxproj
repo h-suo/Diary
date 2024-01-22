@@ -100,8 +100,8 @@
 		451611DD2B5503E7006E6EA0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */,
 				451611CF2B54FF41006E6EA0 /* DiaryApp.swift */,
+				45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";

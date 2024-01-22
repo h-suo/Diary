@@ -10,6 +10,8 @@ import Foundation
 final class DiaryListViewModel: ObservableObject {
   
   @Published var diarys: [Diary] = []
+  @Published var isError: Bool = false
+  @Published var errorMessage: String = ""
   
   private var useCase: DiaryUseCase
   
@@ -21,7 +23,8 @@ final class DiaryListViewModel: ObservableObject {
     do {
       self.diarys = try useCase.diarys().sorted { $0.date > $1.date }
     } catch {
-      print(error.localizedDescription)
+      errorMessage = error.localizedDescription
+      isError = true
     }
   }
   
@@ -30,7 +33,8 @@ final class DiaryListViewModel: ObservableObject {
       try useCase.create(Diary(title: "", contents: ""))
       fetchDiarys()
     } catch {
-      print(error.localizedDescription)
+      errorMessage = error.localizedDescription
+      isError = true
     }
   }
   
@@ -43,7 +47,8 @@ final class DiaryListViewModel: ObservableObject {
           fetchDiarys()
         }
     } catch {
-      print(error.localizedDescription)
+      errorMessage = error.localizedDescription
+      isError = true
     }
   }
 }
