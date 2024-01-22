@@ -17,10 +17,6 @@ struct DiaryUseCase: DiaryRepository {
     try repository.diarys()
   }
   
-  func create(_ diary: Diary) throws {
-    try repository.create(diary)
-  }
-  
   func update(_ diary: Diary) throws {
     try repository.update(diary)
   }

@@ -47,26 +47,17 @@ extension DiaryCoreDataRepository: DiaryRepository {
     }
   }
   
-  func create(_ diary: Diary) throws {
-    let newDiaryEntity = DiaryDTO(context: context)
-    newDiaryEntity.id = diary.id
-    newDiaryEntity.title = diary.title
-    newDiaryEntity.contents = diary.contents
-    newDiaryEntity.date = diary.date
-    
-    do {
-      try context.save()
-    } catch {
-      throw CoreDataRepositoryError.creationError
-    }
-  }
-  
   func update(_ diary: Diary) throws {
-    guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
-    else { throw CoreDataRepositoryError.fetchError }
-    
-    diaryEntity.title = diary.title
-    diaryEntity.contents = diary.contents
+    if let diaryEntity = try fetchDiaryEntity(forId: diary.id) {
+      diaryEntity.title = diary.title
+      diaryEntity.contents = diary.contents
+    } else {
+      let newDiaryEntity = DiaryDTO(context: context)
+      newDiaryEntity.id = diary.id
+      newDiaryEntity.title = diary.title
+      newDiaryEntity.contents = diary.contents
+      newDiaryEntity.date = diary.date
+    }
     
     do {
       try context.save()
