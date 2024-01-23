@@ -57,15 +57,8 @@ struct DiaryListView: View {
 }
 
 struct DiaryListView_Previews: PreviewProvider {
-  
-  @State static var useCase = DiaryUseCase(
-    repository: DiaryCoreDataRepository(
-      persistentContainer: PersistenceController.preview.container
-    )
-  )
-  
   static var previews: some View {
     DiaryListView()
-      .environmentObject(DiaryListViewModel(useCase: useCase))
+      .environmentObject(DIContainer.shared.diaryListViewModel())
   }
 }
