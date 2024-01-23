@@ -11,7 +11,8 @@ final class DiaryListViewModel: ObservableObject {
   
   @Published var diarys: [Diary] = []
   @Published var isError: Bool = false
-  @Published var errorMessage: String = ""
+  
+  private(set) var errorMessage: String = ""
   
   private var useCase: DiaryUseCase
   
@@ -28,17 +29,17 @@ final class DiaryListViewModel: ObservableObject {
     }
   }
   
-  func deleteDiary(_ offsets: IndexSet) {
+  func deleteDiary(_ diary: Diary) {
     do {
-      try offsets
-        .map { self.diarys[$0] }
-        .forEach {
-          try useCase.delete($0)
-          fetchDiarys()
-        }
+      try useCase.delete(diary)
+      fetchDiarys()
     } catch {
       errorMessage = error.localizedDescription
       isError = true
     }
+  }
+  
+  func shareItem(_ diary: Diary) -> String {
+    String(format: "%@\n%@", diary.title, diary.contents)
   }
 }
