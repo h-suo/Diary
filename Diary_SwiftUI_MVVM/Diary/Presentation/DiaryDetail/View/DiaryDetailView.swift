@@ -10,7 +10,7 @@ import SwiftUI
 struct DiaryDetailView: View {
   
   @EnvironmentObject
-  var viewModel: DiaryDetailViewModel
+  private var viewModel: DiaryDetailViewModel
   
   @Environment(\.dismiss) private var dismiss
   
