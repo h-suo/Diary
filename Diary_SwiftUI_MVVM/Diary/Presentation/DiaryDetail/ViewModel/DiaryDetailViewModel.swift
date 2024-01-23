@@ -10,14 +10,17 @@ import Foundation
 final class DiaryDetailViewModel: ObservableObject {
   
   @Published var diary: Diary
-  @Published var isBack: Bool = false
   @Published var isError: Bool = false
-  @Published var errorMessage: String = ""
+  
+  private(set) var errorMessage: String = ""
+  private(set) var isBack: Bool = false
+  private(set) var isNew: Bool
   
   private var useCase: DiaryUseCase
   
   init(diary: Diary?, useCase: DiaryUseCase) {
     self.diary = diary ?? Diary(title: "", contents: "")
+    self.isNew = diary == nil ? true : false
     self.useCase = useCase
   }
   
@@ -35,5 +38,19 @@ final class DiaryDetailViewModel: ObservableObject {
       errorMessage = error.localizedDescription
       isError = true
     }
+  }
+  
+  func deleteDiary() {
+    do {
+      try useCase.delete(diary)
+      isBack = true
+    } catch {
+      errorMessage = error.localizedDescription
+      isError = true
+    }
+  }
+  
+  func shareItem() -> String {
+    String(format: "%@\n%@", diary.title, diary.contents)
   }
 }
