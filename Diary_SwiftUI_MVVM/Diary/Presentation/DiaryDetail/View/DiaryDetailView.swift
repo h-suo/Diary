@@ -28,9 +28,8 @@ struct DiaryDetailView: View {
     .navigationTitle(viewModel.diary.dateString)
     .navigationBarBackButtonHidden(true)
     .toolbar {
-      ToolbarItem(placement: .navigationBarLeading) {
-        backButton
-      }
+      ToolbarItem(placement: .navigationBarLeading) { backButton }
+      ToolbarItem { moreMenu }
     }
   }
   
@@ -60,6 +59,22 @@ struct DiaryDetailView: View {
     .alert(isPresented: $viewModel.isError) {
       Alert(title: Text(viewModel.errorMessage))
     }
+  }
+  
+  private var moreMenu: some View {
+    Menu {
+      ShareLink(item: viewModel.shareItem()) {
+        Text("Share")
+      }
+      
+      Button("Delete", role: .destructive) {
+        viewModel.deleteDiary()
+        if viewModel.isBack { dismiss() }
+      }
+    } label: {
+      Image(systemName: "ellipsis")
+    }
+    .disabled(viewModel.isNew)
   }
 }
 
