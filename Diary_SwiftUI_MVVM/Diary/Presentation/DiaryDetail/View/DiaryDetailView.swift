@@ -29,18 +29,7 @@ struct DiaryDetailView: View {
     .navigationBarBackButtonHidden(true)
     .toolbar {
       ToolbarItem(placement: .navigationBarLeading) {
-        Button {
-          viewModel.updateDiary()
-          if viewModel.isBack { dismiss() }
-        } label: {
-          HStack {
-            Image(systemName: "chevron.left")
-            Text("Diary")
-          }
-        }
-        .alert(isPresented: $viewModel.isError) {
-          Alert(title: Text(viewModel.errorMessage))
-        }
+        backButton
       }
     }
   }
@@ -55,7 +44,22 @@ struct DiaryDetailView: View {
   ) -> some View {
     TextEditor(text: $viewModel.diary.contents)
       .scrollDisabled(true)
-      .frame(height: geometry.size.height * 0.9)
+      .frame(minWidth: geometry.size.height * 0.8)
+  }
+  
+  private var backButton: some View {
+    Button {
+      viewModel.updateDiary()
+      if viewModel.isBack { dismiss() }
+    } label: {
+      HStack {
+        Image(systemName: "chevron.left")
+        Text("Diary")
+      }
+    }
+    .alert(isPresented: $viewModel.isError) {
+      Alert(title: Text(viewModel.errorMessage))
+    }
   }
 }
 
