@@ -46,6 +46,6 @@ struct DiaryRowView: View {
 
 struct DiaryRowView_Previews: PreviewProvider {
   static var previews: some View {
-    DiaryRowView(diary: Diary.makeDummyDiary())
+    DiaryRowView(diary: Diary.dummyDiary)
   }
 }

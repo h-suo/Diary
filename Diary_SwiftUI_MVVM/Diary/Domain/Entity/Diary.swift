@@ -31,25 +31,7 @@ struct Diary: Identifiable {
 }
 
 extension Diary {
-  static func makeDummyDiary() -> Diary {
+  static let dummyDiary: Diary = {
     return Diary(title: "Title", contents: "Contents")
-  }
-  
-  static func makeDummyDiarys() -> [Diary] {
-    return [Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents"),
-            Diary(title: "Title", contents: "Contents")]
-  }
+  }()
 }
