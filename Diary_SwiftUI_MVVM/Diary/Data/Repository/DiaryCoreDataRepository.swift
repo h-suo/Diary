@@ -43,12 +43,12 @@ extension DiaryCoreDataRepository: DiaryRepository {
         )
       }
     } catch {
-      throw CoreDataRepositoryError.fetchError
+      throw CoreDataRepositoryError.fetch(error)
     }
   }
   
   func update(_ diary: Diary) throws {
-    if let diaryEntity = try fetchDiaryEntity(forId: diary.id) {
+    if let diaryEntity = try? fetchDiaryEntity(forId: diary.id) {
       diaryEntity.title = diary.title
       diaryEntity.contents = diary.contents
     } else {
@@ -62,20 +62,20 @@ extension DiaryCoreDataRepository: DiaryRepository {
     do {
       try context.save()
     } catch {
-      throw CoreDataRepositoryError.updateError
+      throw CoreDataRepositoryError.update(error)
     }
   }
   
   func delete(_ diary: Diary) throws {
-    guard let diaryEntity = try fetchDiaryEntity(forId: diary.id)
-    else { throw CoreDataRepositoryError.fetchError }
+    guard let diaryEntity = try? fetchDiaryEntity(forId: diary.id)
+    else { throw CoreDataRepositoryError.fetchFailed }
     
     context.delete(diaryEntity)
     
     do {
       try context.save()
     } catch {
-      throw CoreDataRepositoryError.deletionError
+      throw CoreDataRepositoryError.deletion(error)
     }
   }
 }

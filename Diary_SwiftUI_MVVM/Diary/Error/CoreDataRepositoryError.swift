@@ -8,21 +8,21 @@
 import Foundation
 
 enum CoreDataRepositoryError: LocalizedError {
-  case fetchError
-  case creationError
-  case updateError
-  case deletionError
+  case fetchFailed
+  case fetch(Error)
+  case update(Error)
+  case deletion(Error)
   
   var errorDescription: String? {
     switch self {
-    case .fetchError:
+    case .fetchFailed:
       return "데이터를 가져오는데 실패했습니다."
-    case .creationError:
-      return "데이터를 생성하는데 실패했습니다."
-    case .updateError:
-      return "데이터를 업데이트하는데 실패했습니다."
-    case .deletionError:
-      return "데이터를 삭제하는데 실패했습니다."
+    case .fetch(let error):
+      return "데이터를 가져오는 과정에서 다음 에러가 발생했습니다.: \(error.localizedDescription)"
+    case .update(let error):
+      return "데이터를 업데이트하는 과정에서 다음 에러가 발생했습니다.: \(error.localizedDescription)"
+    case .deletion(let error):
+      return "데이터를 삭제하는 과정에서 다음 에러가 발생했습니다.: \(error.localizedDescription)"
     }
   }
 }
