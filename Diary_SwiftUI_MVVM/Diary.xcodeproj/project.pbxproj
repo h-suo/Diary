@@ -15,6 +15,7 @@
 		451611E82B550C1D006E6EA0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611E72B550C1D006E6EA0 /* Diary.swift */; };
 		451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611ED2B551823006E6EA0 /* DateFormatter+.swift */; };
 		451611F02B551C0F006E6EA0 /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451611EF2B551C0F006E6EA0 /* DiaryDetailView.swift */; };
+		456D7B5B2B624F26000C3775 /* SwiftErickNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 456D7B5A2B624F26000C3775 /* SwiftErickNetwork */; };
 		458504882B5A8D560071F36A /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458504872B5A8D560071F36A /* DiaryListViewModel.swift */; };
 		45C1C3B12B5E7D4600F50E50 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1C3B02B5E7D4600F50E50 /* DIContainer.swift */; };
 		45C1C3B42B5E8DD500F50E50 /* DiaryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1C3B32B5E8DD500F50E50 /* DiaryDetailViewModel.swift */; };
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				456D7B5B2B624F26000C3775 /* SwiftErickNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +281,9 @@
 			dependencies = (
 			);
 			name = Diary;
+			packageProductDependencies = (
+				456D7B5A2B624F26000C3775 /* SwiftErickNetwork */,
+			);
 			productName = Diary;
 			productReference = 451611CC2B54FF41006E6EA0 /* Diary.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +312,9 @@
 				Base,
 			);
 			mainGroup = 451611C32B54FF41006E6EA0;
+			packageReferences = (
+				456D7B592B624F26000C3775 /* XCRemoteSwiftPackageReference "SwiftErickNetwork" */,
+			);
 			productRefGroup = 451611CD2B54FF41006E6EA0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -547,6 +555,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		456D7B592B624F26000C3775 /* XCRemoteSwiftPackageReference "SwiftErickNetwork" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/h-suo/SwiftErickNetwork";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		456D7B5A2B624F26000C3775 /* SwiftErickNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 456D7B592B624F26000C3775 /* XCRemoteSwiftPackageReference "SwiftErickNetwork" */;
+			productName = SwiftErickNetwork;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */ = {

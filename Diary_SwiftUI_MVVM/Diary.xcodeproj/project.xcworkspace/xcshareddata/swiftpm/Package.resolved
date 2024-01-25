@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftericknetwork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/h-suo/SwiftErickNetwork",
+      "state" : {
+        "revision" : "e535a77616a6b12eec86f0a644551a8e29c5d20a",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
