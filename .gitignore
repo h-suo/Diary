@@ -71,6 +71,7 @@ xcuserdata/
 
 ## API_KEY
 Diary/Resource/API_KEY.xcconfig
+Diary_SwiftUI_MVVM/Diary/Resource/API_KEY.xcconfig
 
 ## Obj-C/Swift specific
 *.hmap
