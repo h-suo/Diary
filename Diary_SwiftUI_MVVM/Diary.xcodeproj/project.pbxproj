@@ -25,7 +25,7 @@
 		45C8A9CA2B59092F00BB3C62 /* DiaryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9C82B59092F00BB3C62 /* DiaryDTO.swift */; };
 		45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */; };
 		45C8A9F32B592CEA00BB3C62 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */; };
-		45C8A9F72B593C5200BB3C62 /* CoreDataRepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9F62B593C5200BB3C62 /* CoreDataRepositoryError.swift */; };
+		45C8A9F72B593C5200BB3C62 /* DiaryRepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8A9F62B593C5200BB3C62 /* DiaryRepositoryError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		45C8A9C82B59092F00BB3C62 /* DiaryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDTO.swift; sourceTree = "<group>"; };
 		45C8A9D12B59188900BB3C62 /* DiaryCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCoreDataRepository.swift; sourceTree = "<group>"; };
 		45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		45C8A9F62B593C5200BB3C62 /* CoreDataRepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepositoryError.swift; sourceTree = "<group>"; };
+		45C8A9F62B593C5200BB3C62 /* DiaryRepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepositoryError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +260,7 @@
 		45C8A9F52B593C2B00BB3C62 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				45C8A9F62B593C5200BB3C62 /* CoreDataRepositoryError.swift */,
+				45C8A9F62B593C5200BB3C62 /* DiaryRepositoryError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 				451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */,
 				451611F02B551C0F006E6EA0 /* DiaryDetailView.swift in Sources */,
 				45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */,
-				45C8A9F72B593C5200BB3C62 /* CoreDataRepositoryError.swift in Sources */,
+				45C8A9F72B593C5200BB3C62 /* DiaryRepositoryError.swift in Sources */,
 				451611D02B54FF41006E6EA0 /* DiaryApp.swift in Sources */,
 				451611E82B550C1D006E6EA0 /* Diary.swift in Sources */,
 				458504882B5A8D560071F36A /* DiaryListViewModel.swift in Sources */,

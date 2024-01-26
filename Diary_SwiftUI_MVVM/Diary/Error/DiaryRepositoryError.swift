@@ -1,5 +1,5 @@
 //
-//  CoreDataRepositoryError.swift
+//  DiaryRepositoryError.swift
 //  Diary
 //
 //  Created by Erick on 2024/01/18.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CoreDataRepositoryError: LocalizedError {
+enum DiaryRepositoryError: LocalizedError {
   case fetchFailed
   case fetch(Error)
   case update(Error)
