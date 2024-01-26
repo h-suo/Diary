@@ -19,6 +19,8 @@
 		45400B3A2B639D1000F5B6FC /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45400B392B639D1000F5B6FC /* WeatherService.swift */; };
 		45400B3D2B639D6D00F5B6FC /* CurrentWeatherEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45400B3C2B639D6D00F5B6FC /* CurrentWeatherEndPoint.swift */; };
 		45400B3F2B639D9000F5B6FC /* API_KEY.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 45400B3E2B639D9000F5B6FC /* API_KEY.xcconfig */; };
+		45400B492B63AA2000F5B6FC /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45400B482B63AA2000F5B6FC /* LocationService.swift */; };
+		45400B4B2B63AA3900F5B6FC /* LocationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45400B4A2B63AA3900F5B6FC /* LocationServiceError.swift */; };
 		456D7B5B2B624F26000C3775 /* SwiftErickNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 456D7B5A2B624F26000C3775 /* SwiftErickNetwork */; };
 		458504882B5A8D560071F36A /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458504872B5A8D560071F36A /* DiaryListViewModel.swift */; };
 		45C1C3B12B5E7D4600F50E50 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1C3B02B5E7D4600F50E50 /* DIContainer.swift */; };
@@ -46,6 +48,8 @@
 		45400B392B639D1000F5B6FC /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		45400B3C2B639D6D00F5B6FC /* CurrentWeatherEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherEndPoint.swift; sourceTree = "<group>"; };
 		45400B3E2B639D9000F5B6FC /* API_KEY.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = API_KEY.xcconfig; sourceTree = "<group>"; };
+		45400B482B63AA2000F5B6FC /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		45400B4A2B63AA3900F5B6FC /* LocationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceError.swift; sourceTree = "<group>"; };
 		458504872B5A8D560071F36A /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
 		45C1C3B02B5E7D4600F50E50 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		45C1C3B32B5E8DD500F50E50 /* DiaryDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewModel.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			children = (
 				45C8A9C02B56668900BB3C62 /* DiaryRepository.swift */,
 				45400B392B639D1000F5B6FC /* WeatherService.swift */,
+				45400B482B63AA2000F5B6FC /* LocationService.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				45C8A9F62B593C5200BB3C62 /* DiaryRepositoryError.swift */,
+				45400B4A2B63AA3900F5B6FC /* LocationServiceError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 			files = (
 				45C8A9C72B59088C00BB3C62 /* Diary.xcdatamodeld in Sources */,
 				451611E42B5504F9006E6EA0 /* DiaryRowView.swift in Sources */,
+				45400B492B63AA2000F5B6FC /* LocationService.swift in Sources */,
 				451611E62B550545006E6EA0 /* DiaryListView.swift in Sources */,
 				451611F02B551C0F006E6EA0 /* DiaryDetailView.swift in Sources */,
 				45C8A9D22B59188900BB3C62 /* DiaryCoreDataRepository.swift in Sources */,
@@ -383,6 +390,7 @@
 				45400B3A2B639D1000F5B6FC /* WeatherService.swift in Sources */,
 				458504882B5A8D560071F36A /* DiaryListViewModel.swift in Sources */,
 				451611EE2B551824006E6EA0 /* DateFormatter+.swift in Sources */,
+				45400B4B2B63AA3900F5B6FC /* LocationServiceError.swift in Sources */,
 				45C8A9C12B56668900BB3C62 /* DiaryRepository.swift in Sources */,
 				45C1C3B12B5E7D4600F50E50 /* DIContainer.swift in Sources */,
 				45C8A9CA2B59092F00BB3C62 /* DiaryDTO.swift in Sources */,
