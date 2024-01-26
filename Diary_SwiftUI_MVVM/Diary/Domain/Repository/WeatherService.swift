@@ -6,8 +6,11 @@
 //
 
 import Combine
+import CoreLocation
 import SwiftErickNetwork
 
 protocol WeatherService {
-  func fetchWeatherPublisher() -> AnyPublisher<Weather, NetworkError>
+  func fetchWeatherPublisher(
+    coordinate: CLLocationCoordinate2D
+  ) -> AnyPublisher<Weather, NetworkError>
 }
