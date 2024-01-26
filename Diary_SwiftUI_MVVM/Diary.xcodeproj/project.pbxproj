@@ -108,7 +108,6 @@
 			children = (
 				451611CF2B54FF41006E6EA0 /* DiaryApp.swift */,
 				45C1C3B02B5E7D4600F50E50 /* DIContainer.swift */,
-				45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -127,6 +126,7 @@
 			children = (
 				45C8A9CD2B5917AC00BB3C62 /* DTO */,
 				45C8A9CE2B5917CC00BB3C62 /* Repository */,
+				45400B362B639B0300F5B6FC /* CoreData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -173,6 +173,15 @@
 				451611ED2B551823006E6EA0 /* DateFormatter+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		45400B362B639B0300F5B6FC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				45C8A9F22B592CEA00BB3C62 /* PersistenceController.swift */,
+				45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		458504852B5A8D370071F36A /* View */ = {
@@ -251,7 +260,6 @@
 		45C8A9F42B5937F300BB3C62 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				45C8A9C52B59088C00BB3C62 /* Diary.xcdatamodeld */,
 				451611D32B54FF42006E6EA0 /* Assets.xcassets */,
 			);
 			path = Resource;
