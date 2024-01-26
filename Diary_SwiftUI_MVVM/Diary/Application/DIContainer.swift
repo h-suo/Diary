@@ -11,8 +11,10 @@ struct DIContainer {
   
   private var useCase: DiaryUseCase = DiaryUseCase(
     repository: DiaryCoreDataRepository(
-      persistentContainer: PersistenceController.preview.container
-    )
+      persistentContainer: PersistenceController.shared.container
+    ),
+    weatherService: WeatherNetworkService(),
+    locationService: LocationManagerService()
   )
   
   func diaryListViewModel() -> DiaryListViewModel {
