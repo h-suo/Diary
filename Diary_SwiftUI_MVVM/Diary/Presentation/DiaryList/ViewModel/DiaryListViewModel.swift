@@ -5,6 +5,7 @@
 //  Created by Erick on 2024/01/19.
 //
 
+import Combine
 import Foundation
 
 final class DiaryListViewModel: ObservableObject {
@@ -14,6 +15,7 @@ final class DiaryListViewModel: ObservableObject {
   
   private(set) var errorMessage: String = ""
   
+  private var cancelables: [AnyCancellable] = []
   private var useCase: DiaryUseCase
   
   init(useCase: DiaryUseCase) {
@@ -23,6 +25,7 @@ final class DiaryListViewModel: ObservableObject {
   func fetchDiarys() {
     do {
       self.diarys = try useCase.diarys().sorted { $0.date > $1.date }
+      fetchWeatherIcon()
     } catch {
       errorMessage = error.localizedDescription
       isError = true
@@ -41,5 +44,23 @@ final class DiaryListViewModel: ObservableObject {
   
   func shareItem(_ diary: Diary) -> String {
     String(format: "%@\n%@", diary.title, diary.contents)
+  }
+  
+  private func fetchWeatherIcon() {
+    for (index, diary) in diarys.enumerated()  {
+      guard let weatherID = diary.weatherID
+      else { continue }
+      
+      useCase.fetchWeatherIconPublisher(weatherID: weatherID)
+        .receive(on: DispatchQueue.main)
+        .sink { completion in
+          if case .failure(let error) = completion {
+            print(error.localizedDescription)
+          }
+        } receiveValue: { data in
+          self.diarys[index].iconData = data
+        }
+        .store(in: &cancelables)
+    }
   }
 }

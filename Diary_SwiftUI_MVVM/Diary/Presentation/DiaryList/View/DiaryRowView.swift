@@ -21,6 +21,7 @@ struct DiaryRowView: View {
       
       HStack {
         dateText
+        iconImage
         contentsText
       }
     }
@@ -37,6 +38,21 @@ struct DiaryRowView: View {
       .font(.title3)
       .foregroundColor(.gray)
       .layoutPriority(1)
+  }
+  
+  private var iconImage: some View {
+    if let iconData = diary.iconData,
+       let image = UIImage(data: iconData) {
+      return Image(uiImage: image)
+        .resizable()
+        .scaledToFit()
+        .frame(width: 24)
+    } else {
+      return Image(systemName: "antenna.radiowaves.left.and.right.slash")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 20)
+    }
   }
   
   private var contentsText: some View {
