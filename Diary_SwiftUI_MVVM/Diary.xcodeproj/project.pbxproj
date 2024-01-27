@@ -54,6 +54,7 @@
 		45400B4A2B63AA3900F5B6FC /* LocationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceError.swift; sourceTree = "<group>"; };
 		45400B4C2B63AAA800F5B6FC /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
 		45400B4E2B63AB0900F5B6FC /* LocationManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerService.swift; sourceTree = "<group>"; };
+		45837DF82B64E1020032CCD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		458504872B5A8D560071F36A /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
 		45C1C3B02B5E7D4600F50E50 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		45C1C3B32B5E8DD500F50E50 /* DiaryDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		451611CE2B54FF41006E6EA0 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				45837DF82B64E1020032CCD0 /* Info.plist */,
 				451611DD2B5503E7006E6EA0 /* Application */,
 				451611E02B550408006E6EA0 /* Domain */,
 				451611DE2B5503F3006E6EA0 /* Presentation */,
@@ -527,6 +529,7 @@
 		};
 		451611DB2B54FF42006E6EA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45400B3E2B639D9000F5B6FC /* API_KEY.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -535,6 +538,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Diary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Diary/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Do you want to use your current location?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -563,6 +568,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Diary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Diary/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Do you want to use your current location?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
