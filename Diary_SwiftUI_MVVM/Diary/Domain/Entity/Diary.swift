@@ -14,6 +14,7 @@ struct Diary: Identifiable {
   var contents: String
   var date: Date
   var weatherID: String?
+  var iconData: Data?
   
   var dateString: String {
     DateFormatter.currentLong.string(from: date)
