@@ -31,6 +31,11 @@ struct DiaryDetailView: View {
       ToolbarItem(placement: .navigationBarLeading) { backButton }
       ToolbarItem { moreMenu }
     }
+    .onReceive(viewModel.$isBack) { isBack in
+      if isBack {
+        dismiss()
+      }
+    }
   }
   
   private var titleTextField: some View {
@@ -48,8 +53,7 @@ struct DiaryDetailView: View {
   
   private var backButton: some View {
     Button {
-      viewModel.updateDiary()
-      if viewModel.isBack { dismiss() }
+      viewModel.storeDiary()
     } label: {
       HStack {
         Image(systemName: "chevron.left")
@@ -69,7 +73,6 @@ struct DiaryDetailView: View {
       
       Button("Delete", role: .destructive) {
         viewModel.deleteDiary()
-        if viewModel.isBack { dismiss() }
       }
     } label: {
       Image(systemName: "ellipsis")

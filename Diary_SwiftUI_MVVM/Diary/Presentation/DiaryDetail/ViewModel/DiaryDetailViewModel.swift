@@ -5,17 +5,20 @@
 //  Created by Erick on 2024/01/22.
 //
 
+import Combine
 import Foundation
+import SwiftErickNetwork
 
 final class DiaryDetailViewModel: ObservableObject {
   
   @Published var diary: Diary
   @Published var isError: Bool = false
+  @Published var isBack: Bool = false
   
   private(set) var errorMessage: String = ""
-  private(set) var isBack: Bool = false
   private(set) var isNew: Bool
   
+  private var cancelables: [AnyCancellable] = []
   private var useCase: DiaryUseCase
   
   init(diary: Diary?, useCase: DiaryUseCase) {
@@ -24,19 +27,17 @@ final class DiaryDetailViewModel: ObservableObject {
     self.useCase = useCase
   }
   
-  func updateDiary() {
+  func storeDiary() {
     guard !diary.title.isEmpty else {
       errorMessage = "Enter a title."
       isError = true
       return
     }
     
-    do {
-      try useCase.update(diary)
-      isBack = true
-    } catch {
-      errorMessage = error.localizedDescription
-      isError = true
+    if isNew {
+      createDiary()
+    } else {
+      updateDiary()
     }
   }
   
@@ -52,5 +53,35 @@ final class DiaryDetailViewModel: ObservableObject {
   
   func shareItem() -> String {
     String(format: "%@\n%@", diary.title, diary.contents)
+  }
+  
+  private func createDiary() {
+    useCase.requestLoactionPublisher()
+      .mapError { _ in NetworkError.invalidComponents }
+      .flatMap { location in
+        self.useCase.fetchWeatherPublisher(coordinate: location)
+      }
+      .eraseToAnyPublisher()
+      .receive(on: DispatchQueue.main)
+      .sink { completion in
+        if case .failure(let error) = completion {
+          self.errorMessage = error.localizedDescription
+          self.isError = true
+        }
+      } receiveValue: { weather in
+        self.diary.weatherID = weather.icon
+        self.updateDiary()
+      }
+      .store(in: &cancelables)
+  }
+  
+  private func updateDiary() {
+    do {
+      try useCase.update(diary)
+      isBack = true
+    } catch {
+      errorMessage = error.localizedDescription
+      isError = true
+    }
   }
 }
