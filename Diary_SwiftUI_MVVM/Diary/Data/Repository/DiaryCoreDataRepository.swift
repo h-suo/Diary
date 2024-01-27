@@ -39,7 +39,8 @@ extension DiaryCoreDataRepository: DiaryRepository {
           id: $0.id,
           title: $0.title,
           contents: $0.contents,
-          date: $0.date
+          date: $0.date,
+          weatherID: $0.weatherID
         )
       }
     } catch {
@@ -48,15 +49,17 @@ extension DiaryCoreDataRepository: DiaryRepository {
   }
   
   func update(_ diary: Diary) throws {
-    if let diaryEntity = try? fetchDiaryEntity(forId: diary.id) {
-      diaryEntity.title = diary.title
-      diaryEntity.contents = diary.contents
+    if let diaryDTO = try? fetchDiaryEntity(forId: diary.id) {
+      diaryDTO.title = diary.title
+      diaryDTO.contents = diary.contents
+      diaryDTO.weatherID = diary.weatherID
     } else {
-      let newDiaryEntity = DiaryDTO(context: context)
-      newDiaryEntity.id = diary.id
-      newDiaryEntity.title = diary.title
-      newDiaryEntity.contents = diary.contents
-      newDiaryEntity.date = diary.date
+      let newDiaryDTO = DiaryDTO(context: context)
+      newDiaryDTO.id = diary.id
+      newDiaryDTO.title = diary.title
+      newDiaryDTO.contents = diary.contents
+      newDiaryDTO.date = diary.date
+      newDiaryDTO.weatherID = diary.weatherID
     }
     
     do {

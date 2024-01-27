@@ -23,6 +23,7 @@ extension DiaryDTO {
   @NSManaged var title: String
   @NSManaged var contents: String
   @NSManaged var date: Date
+  @NSManaged var weatherID: String?
 }
 
 extension DiaryDTO : Identifiable {

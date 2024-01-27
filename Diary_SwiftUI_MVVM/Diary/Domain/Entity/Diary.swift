@@ -13,6 +13,8 @@ struct Diary: Identifiable {
   var title: String
   var contents: String
   var date: Date
+  var weatherID: String?
+  
   var dateString: String {
     DateFormatter.currentLong.string(from: date)
   }
@@ -21,12 +23,14 @@ struct Diary: Identifiable {
     id: UUID = UUID(),
     title: String,
     contents: String,
-    date: Date = Date()
+    date: Date = Date(),
+    weatherID: String? = nil
   ) {
     self.id = id
     self.title = title
     self.contents = contents
     self.date = date
+    self.weatherID = weatherID
   }
 }
 

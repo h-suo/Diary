@@ -21,6 +21,7 @@ struct PersistenceController {
       newDiaryDTO.title = "Title"
       newDiaryDTO.contents = "Contents"
       newDiaryDTO.date = Date()
+      newDiaryDTO.weatherID = "04n"
     }
     
     do {
