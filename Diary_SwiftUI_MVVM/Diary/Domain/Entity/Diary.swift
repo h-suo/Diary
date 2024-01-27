@@ -37,6 +37,6 @@ struct Diary: Identifiable {
 
 extension Diary {
   static let dummyDiary: Diary = {
-    return Diary(title: "Title", contents: "Contents")
+    return Diary(title: NameSpace.title, contents: NameSpace.contents)
   }()
 }

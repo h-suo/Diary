@@ -15,21 +15,21 @@ final class DiaryDetailViewModel: ObservableObject {
   @Published var isError: Bool = false
   @Published var isBack: Bool = false
   
-  private(set) var errorMessage: String = ""
+  private(set) var errorMessage: String = String.empty
   private(set) var isNew: Bool
   
   private var cancelables: [AnyCancellable] = []
   private var useCase: DiaryUseCase
   
   init(diary: Diary?, useCase: DiaryUseCase) {
-    self.diary = diary ?? Diary(title: "", contents: "")
+    self.diary = diary ?? Diary(title: String.empty, contents: String.empty)
     self.isNew = diary == nil ? true : false
     self.useCase = useCase
   }
   
   func storeDiary() {
     guard !diary.title.isEmpty else {
-      errorMessage = "Enter a title."
+      errorMessage = NameSpace.enterTitle
       isError = true
       return
     }
@@ -52,7 +52,7 @@ final class DiaryDetailViewModel: ObservableObject {
   }
   
   func shareItem() -> String {
-    String(format: "%@\n%@", diary.title, diary.contents)
+    String(format: NameSpace.shareFormat, diary.title, diary.contents)
   }
   
   private func createDiary() {

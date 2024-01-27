@@ -39,7 +39,7 @@ struct DiaryDetailView: View {
   }
   
   private var titleTextField: some View {
-    TextField("Enter a title.", text: $viewModel.diary.title)
+    TextField(NameSpace.enterTitle, text: $viewModel.diary.title)
       .font(.title2)
   }
   
@@ -56,8 +56,8 @@ struct DiaryDetailView: View {
       viewModel.storeDiary()
     } label: {
       HStack {
-        Image(systemName: "chevron.left")
-        Text("Diary")
+        Image(systemName: NameSpace.systemNameChevronLeft)
+        Text(NameSpace.diary)
       }
     }
     .alert(isPresented: $viewModel.isError) {
@@ -68,14 +68,14 @@ struct DiaryDetailView: View {
   private var moreMenu: some View {
     Menu {
       ShareLink(item: viewModel.shareItem()) {
-        Text("Share")
+        Text(NameSpace.share)
       }
       
-      Button("Delete", role: .destructive) {
+      Button(NameSpace.delete, role: .destructive) {
         viewModel.deleteDiary()
       }
     } label: {
-      Image(systemName: "ellipsis")
+      Image(systemName: NameSpace.systemNameEllipsis)
     }
     .disabled(viewModel.isNew)
   }

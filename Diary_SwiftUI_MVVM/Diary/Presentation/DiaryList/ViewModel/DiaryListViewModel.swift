@@ -13,7 +13,7 @@ final class DiaryListViewModel: ObservableObject {
   @Published var diarys: [Diary] = []
   @Published var isError: Bool = false
   
-  private(set) var errorMessage: String = ""
+  private(set) var errorMessage: String = String.empty
   
   private var cancelables: [AnyCancellable] = []
   private var useCase: DiaryUseCase
@@ -43,7 +43,7 @@ final class DiaryListViewModel: ObservableObject {
   }
   
   func shareItem(_ diary: Diary) -> String {
-    String(format: "%@\n%@", diary.title, diary.contents)
+    String(format: NameSpace.share, diary.title, diary.contents)
   }
   
   private func fetchWeatherIcon() {

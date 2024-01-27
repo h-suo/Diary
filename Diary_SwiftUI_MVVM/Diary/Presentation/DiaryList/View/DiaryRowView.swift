@@ -48,7 +48,7 @@ struct DiaryRowView: View {
         .scaledToFit()
         .frame(width: 24)
     } else {
-      return Image(systemName: "antenna.radiowaves.left.and.right.slash")
+      return Image(systemName: NameSpace.systemNameAntennaSlash)
         .resizable()
         .scaledToFit()
         .frame(width: 20)

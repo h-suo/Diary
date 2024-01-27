@@ -16,7 +16,7 @@ final class DiaryDTO: NSManagedObject {
 extension DiaryDTO {
   
   @nonobjc final class func fetchRequest() -> NSFetchRequest<DiaryDTO> {
-    return NSFetchRequest<DiaryDTO>(entityName: "DiaryDTO")
+    return NSFetchRequest<DiaryDTO>(entityName: NameSpace.diaryDTO)
   }
   
   @NSManaged var id: UUID

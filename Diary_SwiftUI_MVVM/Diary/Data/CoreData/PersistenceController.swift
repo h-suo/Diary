@@ -18,10 +18,10 @@ struct PersistenceController {
     for _ in 0..<10 {
       let newDiaryDTO = DiaryDTO(context: viewContext)
       newDiaryDTO.id = UUID()
-      newDiaryDTO.title = "Title"
-      newDiaryDTO.contents = "Contents"
+      newDiaryDTO.title = NameSpace.title
+      newDiaryDTO.contents = NameSpace.contents
       newDiaryDTO.date = Date()
-      newDiaryDTO.weatherID = "04n"
+      newDiaryDTO.weatherID = NameSpace.testWeatherID
     }
     
     do {
@@ -38,10 +38,12 @@ struct PersistenceController {
   
   init(inMemory: Bool = false) {
     
-    container = NSPersistentContainer(name: "Diary")
+    container = NSPersistentContainer(name: NameSpace.diary)
     
     if inMemory {
-      container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+      container.persistentStoreDescriptions.first!.url = URL(
+        fileURLWithPath: NameSpace.inMemoryPath
+      )
     }
     
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in

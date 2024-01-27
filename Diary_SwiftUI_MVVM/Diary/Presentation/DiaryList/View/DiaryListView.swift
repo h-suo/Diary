@@ -22,7 +22,7 @@ struct DiaryListView: View {
         }
       }
       .listStyle(.plain)
-      .navigationTitle("Diary")
+      .navigationTitle(NameSpace.diary)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem { diaryDetailViewLink } }
       .onAppear { viewModel.fetchDiarys() }
@@ -46,14 +46,14 @@ struct DiaryListView: View {
   }
   
   private func deleteButton(_ diary: Diary) -> some View {
-    Button("Delete", role: .destructive) {
+    Button(NameSpace.delete, role: .destructive) {
       viewModel.deleteDiary(diary)
     }
   }
   
   private func diaryShareLink(_ diary: Diary) -> some View {
     ShareLink(item: viewModel.shareItem(diary)) {
-      Text("Share")
+      Text(NameSpace.share)
     }
   }
   
@@ -66,7 +66,7 @@ struct DiaryListView: View {
             .diaryDetailViewModel(diary: nil)
         )
     } label: {
-      Image(systemName: "plus")
+      Image(systemName: NameSpace.systemNamePlus)
     }
   }
 }

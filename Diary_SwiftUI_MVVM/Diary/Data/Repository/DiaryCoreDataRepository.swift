@@ -21,7 +21,7 @@ struct DiaryCoreDataRepository {
   
   private func fetchDiaryEntity(forId id: UUID) throws -> DiaryDTO? {
     let request = DiaryDTO.fetchRequest()
-    request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+    request.predicate = NSPredicate(format: NameSpace.idFormate, id as CVarArg)
     
     return try context.fetch(request).first
   }
