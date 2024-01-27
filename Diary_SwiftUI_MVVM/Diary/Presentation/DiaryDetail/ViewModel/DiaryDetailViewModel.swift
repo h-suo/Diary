@@ -59,7 +59,7 @@ final class DiaryDetailViewModel: ObservableObject {
     useCase.requestLoactionPublisher()
       .mapError { _ in NetworkError.invalidComponents }
       .flatMap { location in
-        self.useCase.fetchWeatherPublisher(coordinate: location)
+        self.useCase.fetchWeatherPublisher(location: location)
       }
       .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)

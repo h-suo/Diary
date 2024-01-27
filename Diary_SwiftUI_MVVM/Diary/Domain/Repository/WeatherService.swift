@@ -11,6 +11,8 @@ import SwiftErickNetwork
 
 protocol WeatherService {
   func fetchWeatherPublisher(
-    coordinate: CLLocationCoordinate2D
+    location: CLLocationCoordinate2D
   ) -> AnyPublisher<Weather, NetworkError>
+  
+  func fetchWeatherIconPublisher(weatherID: String) -> AnyPublisher<Data, NetworkError>
 }

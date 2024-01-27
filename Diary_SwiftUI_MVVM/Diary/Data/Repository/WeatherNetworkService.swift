@@ -11,16 +11,38 @@ import SwiftErickNetwork
 
 struct WeatherNetworkService: WeatherService {
   
+  private let networkManager = NetworkManager()
+  
   func fetchWeatherPublisher(
-    coordinate: CLLocationCoordinate2D
+    location: CLLocationCoordinate2D
   ) -> AnyPublisher<Weather, NetworkError> {
-    guard let endPoint = CurrentWeatherEndPoint(lat: String(coordinate.latitude),
-                                                lon: String(coordinate.latitude))
+    guard let endPoint = CurrentWeatherEndPoint(lat: String(location.latitude),
+                                                lon: String(location.latitude))
     else { return Fail(error: NetworkError.invalidComponents).eraseToAnyPublisher() }
     
-    return NetworkManager()
+    return networkManager
       .requestPublisher(with: endPoint)
-      .map { $0.weather.first ?? Weather(main: "", icon: "") }
+      .tryMap { weatherResponse in
+        guard let weather = weatherResponse.weather.first
+        else { throw NetworkError.emptyData }
+        
+        return weather
+      }
+      .mapError { error in
+        if let networkError = error as? NetworkError {
+          return networkError
+        } else {
+          return NetworkError.dataTask(error)
+        }
+      }
       .eraseToAnyPublisher()
+  }
+  
+  func fetchWeatherIconPublisher(weatherID: String) -> AnyPublisher<Data, NetworkError> {
+    guard let url = try? WeatherIconEndPoint(iconId: weatherID).url()
+    else { return Fail(error: NetworkError.invalidComponents).eraseToAnyPublisher() }
+            
+    return networkManager
+      .requestPublisher(with: url)
   }
 }

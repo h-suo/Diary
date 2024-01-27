@@ -44,9 +44,13 @@ extension DiaryUseCase: DiaryRepository {
 extension DiaryUseCase: WeatherService {
   
   func fetchWeatherPublisher(
-    coordinate: CLLocationCoordinate2D
+    location: CLLocationCoordinate2D
   ) -> AnyPublisher<Weather, NetworkError> {
-    return weatherService.fetchWeatherPublisher(coordinate: coordinate)
+    return weatherService.fetchWeatherPublisher(location: location)
+  }
+  
+  func fetchWeatherIconPublisher(weatherID: String) -> AnyPublisher<Data, NetworkError> {
+    return weatherService.fetchWeatherIconPublisher(weatherID: weatherID)
   }
 }
 
