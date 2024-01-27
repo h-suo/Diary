@@ -74,6 +74,6 @@ struct DiaryListView: View {
 struct DiaryListView_Previews: PreviewProvider {
   static var previews: some View {
     DiaryListView()
-      .environmentObject(DIContainer.shared.diaryListViewModel())
+      .environmentObject(DIContainer.preview.diaryListViewModel())
   }
 }
