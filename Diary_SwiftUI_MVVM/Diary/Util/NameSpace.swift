@@ -7,12 +7,17 @@
 
 enum NameSpace {
   static let diary = "Diary"
+  static let diaryDTO = "DiaryDTO"
   static let title = "Title"
   static let contents = "Contents"
   static let delete = "Delete"
   static let share = "Share"
   static let enterTitle = "Enter a title."
-  static let diaryDTO = "DiaryDTO"
+  static let weatherFetchFailed = "Failed to fetch weather information."
+  static let diaryFetchFailed = "Failed to fetch diarys."
+  static let diaryUpdateFailed = "Failed to update diary."
+  static let diaryDeletionFailed = "Failed to delete diary."
+  
   static let testWeatherID = "04n"
   static let inMemoryPath = "/dev/null"
   
