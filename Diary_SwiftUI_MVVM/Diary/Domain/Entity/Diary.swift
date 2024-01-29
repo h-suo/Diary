@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Diary: Identifiable {
+struct Diary: Equatable, Identifiable {
   
   var id: UUID
   var title: String
