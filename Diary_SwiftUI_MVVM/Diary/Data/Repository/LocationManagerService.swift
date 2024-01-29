@@ -10,14 +10,15 @@ import CoreLocation
 
 final class LocationManagerService: NSObject, CLLocationManagerDelegate, LocationService {
   
-  private var locationManager = CLLocationManager()
+  private var locationManager: CLLocationManager
   private var locationSubject = PassthroughSubject<CLLocationCoordinate2D, LocationServiceError>()
   
-  override init() {
+  init(locationManager: CLLocationManager = CLLocationManager()) {
+    self.locationManager = locationManager
     super.init()
     
-    locationManager.delegate = self
-    locationManager.requestWhenInUseAuthorization()
+    self.locationManager.delegate = self
+    self.locationManager.requestWhenInUseAuthorization()
   }
   
   func requestLoactionPublisher() -> AnyPublisher<CLLocationCoordinate2D, LocationServiceError> {

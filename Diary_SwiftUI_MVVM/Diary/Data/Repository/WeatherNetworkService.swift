@@ -11,7 +11,11 @@ import SwiftErickNetwork
 
 struct WeatherNetworkService: WeatherService {
   
-  private let networkManager = NetworkManager()
+  private let networkManager: NetworkManager
+  
+  init(networkManager: NetworkManager = NetworkManager()) {
+    self.networkManager = networkManager
+  }
   
   func fetchWeatherPublisher(
     location: CLLocationCoordinate2D
