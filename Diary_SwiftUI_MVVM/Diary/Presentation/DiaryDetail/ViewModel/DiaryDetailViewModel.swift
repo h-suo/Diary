@@ -46,7 +46,8 @@ final class DiaryDetailViewModel: ObservableObject {
       try useCase.delete(diary)
       isBack = true
     } catch {
-      errorMessage = error.localizedDescription
+      print(error.localizedDescription)
+      errorMessage = NameSpace.diaryDeletionFailed
       isError = true
     }
   }
@@ -65,7 +66,8 @@ final class DiaryDetailViewModel: ObservableObject {
       .receive(on: DispatchQueue.main)
       .sink { completion in
         if case .failure(let error) = completion {
-          self.errorMessage = error.localizedDescription
+          print(error.localizedDescription)
+          self.errorMessage = NameSpace.weatherFetchFailed
           self.isError = true
         }
       } receiveValue: { weather in
@@ -80,7 +82,8 @@ final class DiaryDetailViewModel: ObservableObject {
       try useCase.update(diary)
       isBack = true
     } catch {
-      errorMessage = error.localizedDescription
+      print(error.localizedDescription)
+      errorMessage = NameSpace.diaryUpdateFailed
       isError = true
     }
   }

@@ -32,9 +32,7 @@ struct DiaryDetailView: View {
       ToolbarItem { moreMenu }
     }
     .onReceive(viewModel.$isBack) { isBack in
-      if isBack {
-        dismiss()
-      }
+      if isBack { dismiss() }
     }
   }
   

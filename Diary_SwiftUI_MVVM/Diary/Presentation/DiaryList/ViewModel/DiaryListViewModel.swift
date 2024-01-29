@@ -27,7 +27,8 @@ final class DiaryListViewModel: ObservableObject {
       self.diarys = try useCase.diarys().sorted { $0.date > $1.date }
       fetchWeatherIcon()
     } catch {
-      errorMessage = error.localizedDescription
+      print(error.localizedDescription)
+      errorMessage = NameSpace.diaryFetchFailed
       isError = true
     }
   }
@@ -37,7 +38,8 @@ final class DiaryListViewModel: ObservableObject {
       try useCase.delete(diary)
       fetchDiarys()
     } catch {
-      errorMessage = error.localizedDescription
+      print(error.localizedDescription)
+      errorMessage = NameSpace.diaryDeletionFailed
       isError = true
     }
   }
