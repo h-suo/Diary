@@ -11,9 +11,9 @@ import SwiftErickNetwork
 
 struct WeatherNetworkService: WeatherService {
   
-  private let networkManager: NetworkManager
+  private let networkManager: NetworkManageable
   
-  init(networkManager: NetworkManager = NetworkManager()) {
+  init(networkManager: NetworkManageable = NetworkManager()) {
     self.networkManager = networkManager
   }
   
