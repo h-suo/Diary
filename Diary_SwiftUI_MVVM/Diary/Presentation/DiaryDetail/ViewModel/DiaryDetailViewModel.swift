@@ -62,6 +62,7 @@ final class DiaryDetailViewModel: ObservableObject {
       .flatMap { location in
         self.useCase.fetchWeatherPublisher(location: location)
       }
+      .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)
       .sink { completion in
         if case .failure(let error) = completion {
