@@ -59,8 +59,8 @@ final class DiaryListViewModel: ObservableObject {
           if case .failure(let error) = completion {
             print(error.localizedDescription)
           }
-        } receiveValue: { data in
-          self.diarys[index].iconData = data
+        } receiveValue: { [weak self] data in
+          self?.diarys[index].iconData = data
         }
         .store(in: &cancelables)
     }

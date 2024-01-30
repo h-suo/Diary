@@ -59,20 +59,25 @@ final class DiaryDetailViewModel: ObservableObject {
   private func createDiary() {
     useCase.requestLoactionPublisher()
       .mapError { _ in NetworkError.invalidComponents }
-      .flatMap { location in
-        self.useCase.fetchWeatherPublisher(location: location)
+      .flatMap { [weak self] location in
+        guard let self
+        else {
+          return Fail<Weather, NetworkError>(error: NetworkError.emptyData)
+            .eraseToAnyPublisher()
+        }
+        
+        return self.useCase.fetchWeatherPublisher(location: location)
       }
-      .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)
-      .sink { completion in
+      .sink { [weak self] completion in
         if case .failure(let error) = completion {
           print(error.localizedDescription)
-          self.errorMessage = NameSpace.weatherFetchFailed
-          self.isError = true
+          self?.errorMessage = NameSpace.weatherFetchFailed
+          self?.isError = true
         }
-      } receiveValue: { weather in
-        self.diary.weatherID = weather.icon
-        self.updateDiary()
+      } receiveValue: { [weak self] weather in
+        self?.diary.weatherID = weather.icon
+        self?.updateDiary()
       }
       .store(in: &cancelables)
   }
