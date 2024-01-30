@@ -45,7 +45,7 @@ final class DiaryListViewModel: ObservableObject {
   }
   
   func shareItem(_ diary: Diary) -> String {
-    String(format: NameSpace.share, diary.title, diary.contents)
+    String(format: NameSpace.shareFormat, diary.title, diary.contents)
   }
   
   private func fetchWeatherIcon() {
